@@ -1,9 +1,8 @@
-import { motion } from 'framer-motion';
-import { FiMapPin, FiClock, FiStar, FiUsers, FiTrendingUp, FiCheck, FiX, FiCalendar, FiShield, FiTruck } from 'react-icons/fi';
+import { FiMapPin, FiClock, FiStar, FiUsers, FiCheck, FiX, FiCalendar, FiShield, FiTruck } from 'react-icons/fi';
 import { getPackageById, packagesData } from '@/data/packagesData';
-import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Navbar from '@/components/Navbar';
+import Image from 'next/image';
 
 // Generate static params for all packages
 export function generateStaticParams() {
@@ -27,7 +26,7 @@ export default async function PackageDetailPage({ params }: { params: Promise<{ 
       {/* Hero Section with Image */}
       <section className="relative h-[70vh] min-h-[500px]">
         <div className="absolute inset-0">
-          <img
+          <Image
             src={pkg.imageUrl}
             alt={pkg.packageName}
             className="w-full h-full object-cover"
@@ -160,7 +159,7 @@ export default async function PackageDetailPage({ params }: { params: Promise<{ 
                 {/* Inclusions */}
                 {pkg.inclusions && pkg.inclusions.length > 0 && (
                   <div>
-                    <h2 className="text-2xl font-bold text-gray-900 mb-4">What's Included</h2>
+                    <h2 className="text-2xl font-bold text-gray-900 mb-4">What&apos;s Included</h2>
                     <div className="space-y-3">
                       {pkg.inclusions.map((inclusion, index) => (
                         <div key={index} className="flex items-center gap-3">
@@ -175,7 +174,7 @@ export default async function PackageDetailPage({ params }: { params: Promise<{ 
                 {/* Exclusions */}
                 {pkg.exclusions && pkg.exclusions.length > 0 && (
                   <div>
-                    <h2 className="text-2xl font-bold text-gray-900 mb-4">What's Not Included</h2>
+                    <h2 className="text-2xl font-bold text-gray-900 mb-4">What&apos;s Not Included</h2>
                     <div className="space-y-3">
                       {pkg.exclusions.map((exclusion, index) => (
                         <div key={index} className="flex items-center gap-3">

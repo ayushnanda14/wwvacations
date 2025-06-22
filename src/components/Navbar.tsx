@@ -1,11 +1,12 @@
 'use client';
 
-import { Menu, X, Search, MapPin, Package as PackageIcon, Star, Clock, Users } from 'lucide-react';
+import { Menu, X, Search, MapPin, Package as PackageIcon, Star, Clock } from 'lucide-react';
 import Link from 'next/link';
 import { useEffect, useState, useRef, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { packagesData, Package } from '@/data/packagesData';
+import { packagesData } from '@/data/packagesData';
 import { destinationsData } from '@/data/destinationsData';
+import Image from 'next/image';
 
 const navItems = ['Home', 'Services', 'Destinations', 'Packages', 'About Us'];
 
@@ -257,7 +258,7 @@ export default function Navbar() {
                             {/* Image */}
                             <div className="flex-shrink-0 w-12 h-12 rounded-lg overflow-hidden bg-gray-200">
                               {result.imageUrl ? (
-                                <img 
+                                <Image 
                                   src={result.imageUrl} 
                                   alt={result.title}
                                   className="w-full h-full object-cover"
@@ -338,7 +339,7 @@ export default function Navbar() {
                       <div className="p-6 text-center">
                         <Search className="w-8 h-8 text-gray-400 mx-auto mb-2" />
                         <p className="text-gray-600 text-sm">
-                          No results found for "{searchQuery}"
+                          No results found for &quot;{searchQuery}&quot;
                         </p>
                         <p className="text-gray-500 text-xs mt-1">
                           Try searching for destinations or package names
