@@ -102,7 +102,7 @@ export const destinationsData = [
             "packageName": "Darjeeling Tour (4 Nights / 5 Days)",
             "duration": "4 Nights / 5 Days",
             "type": "Domestic",
-            "imageUrl": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+            "imageUrl": "https://images.unsplash.com/photo-1545324367-8997ba3b801e?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
             "description": "A charming tour of the 'Queen of Hills', featuring the majestic Kanchenjunga sunrise from Tiger Hill, a UNESCO heritage Toy Train ride, and visits to serene monasteries and lush tea estates.",
             "highlights": [
               "Tiger Hill Sunrise",
