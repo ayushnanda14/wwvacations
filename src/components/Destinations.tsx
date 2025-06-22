@@ -109,7 +109,7 @@ export default function Destinations() {
     <section 
       ref={sectionRef}
       id="destinations" 
-      className="relative py-16 md:py-24 bg-gray-50 overflow-hidden" 
+      className="relative py-16 md:py-24 bg-gray-50 overflow-x-hidden" 
     >
       {/* Elegant gradient fade from services section */}
       <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-gray-50 via-gray-50/50 to-transparent z-10" />
@@ -126,9 +126,9 @@ export default function Destinations() {
         }}
       />
       <div className="absolute inset-0 bg-black/30" />
-      <div className="relative max-w-7xl mx-auto px-6 z-20">
+      <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 z-20">
         <motion.div 
-          className="sticky top-0 pt-8 pb-12 z-30 text-center"
+          className="text-center mb-12 md:mb-16"
           initial={{ opacity: 0, y: -20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
@@ -147,7 +147,7 @@ export default function Destinations() {
               <motion.button 
                 onClick={() => handleButtonClick('prev')}
                 disabled={activeCardIndex === 0}
-                className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-40 bg-white/80 backdrop-blur-sm p-3 rounded-full shadow-lg hover:bg-white transition disabled:opacity-30 disabled:cursor-not-allowed"
+                className="absolute left-0 md:left-2 lg:left-4 top-1/2 -translate-y-1/2 z-40 bg-white/80 backdrop-blur-sm p-3 rounded-full shadow-lg hover:bg-white transition disabled:opacity-30 disabled:cursor-not-allowed"
                 aria-label="Previous Destination"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -159,7 +159,7 @@ export default function Destinations() {
               <motion.button 
                 onClick={() => handleButtonClick('next')}
                 disabled={activeCardIndex === allDestinations.length - 1}
-                className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-40 bg-white/80 backdrop-blur-sm p-3 rounded-full shadow-lg hover:bg-white transition disabled:opacity-30 disabled:cursor-not-allowed"
+                className="absolute right-0 md:right-2 lg:right-4 top-1/2 -translate-y-1/2 z-40 bg-white/80 backdrop-blur-sm p-3 rounded-full shadow-lg hover:bg-white transition disabled:opacity-30 disabled:cursor-not-allowed"
                 aria-label="Next Destination"
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -172,17 +172,17 @@ export default function Destinations() {
           )}
         </AnimatePresence>
 
-        <div className="min-h-[60vh] md:min-h-[80vh] flex items-center justify-center">
+        <div className="min-h-[70vh] flex items-center justify-center mt-20">
           {/* Mobile Carousel */}
           <div 
             ref={mobileContainerRef} 
-            className="md:hidden w-full flex overflow-x-auto snap-x snap-mandatory gap-4 pb-8 no-scrollbar -mx-6 px-6"
+            className="md:hidden w-full flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 no-scrollbar -mx-4 px-4"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {allDestinations.map((destination, index) => (
               <motion.div
                 key={destination.id}
-                className="flex-shrink-0 w-full snap-center"
+                className="flex-shrink-0 w-[100%] m:w-[90%] snap-center"
                 initial={{ opacity: 0, y: 50 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: index * 0.1 }}
@@ -193,43 +193,45 @@ export default function Destinations() {
           </div>
 
           {/* Desktop Stack */}
-          <div className="hidden md:flex items-center justify-center relative w-full h-[500px]">
-            <AnimatePresence mode="popLayout">
-              {allDestinations.map((destination, index) => {
-                const offset = index - activeCardIndex;
-                const isVisible = Math.abs(offset) <= 2;
-                const isActive = index === activeCardIndex;
-                
-                return (
-                  <motion.div
-                    key={destination.id}
-                    className="absolute"
-                    style={{ width: '420px' }}
-                    initial={{ scale: 0, y: 100, opacity: 0 }}
-                    animate={{
-                      x: isVisible ? offset * 80 : 0,
-                      y: isVisible ? Math.abs(offset) * 20 : 0,
-                      scale: isVisible ? 1 - Math.abs(offset) * 0.1 : 1,
-                      rotate: isVisible ? offset * -3 : 0,
-                      opacity: isVisible ? 1 - Math.abs(offset) * 0.3 : 0,
-                      zIndex: allDestinations.length - Math.abs(offset),
-                    }}
-                    transition={{ 
-                      type: 'spring', 
-                      stiffness: 260, 
-                      damping: 20,
-                      duration: 0.6 
-                    }}
-                  >
+          <div className="hidden md:block w-full h-[550px]">
+            <div className="relative w-full h-full flex items-center justify-center">
+              <AnimatePresence mode="popLayout">
+                {allDestinations.map((destination, index) => {
+                  const offset = index - activeCardIndex;
+                  const isVisible = Math.abs(offset) <= 2;
+                  const isActive = index === activeCardIndex;
+                  
+                  return (
                     <motion.div
-                      animate={isActive ? floatingAnimation : {}}
+                      key={destination.id}
+                      className="absolute"
+                      style={{ width: 'clamp(320px, 30vw, 420px)' }}
+                      initial={{ scale: 0, y: 100, opacity: 0 }}
+                      animate={{
+                        x: isVisible ? offset * 80 : 0,
+                        y: isVisible ? Math.abs(offset) * 20 : 0,
+                        scale: isVisible ? 1 - Math.abs(offset) * 0.1 : 1,
+                        rotate: isVisible ? offset * -3 : 0,
+                        opacity: isVisible ? 1 - Math.abs(offset) * 0.3 : 0,
+                        zIndex: allDestinations.length - Math.abs(offset),
+                      }}
+                      transition={{ 
+                        type: 'spring', 
+                        stiffness: 260, 
+                        damping: 20,
+                        duration: 0.6 
+                      }}
                     >
-                      <DestinationCard destination={destination} isActive={isActive} />
+                      <motion.div
+                        animate={isActive ? floatingAnimation : {}}
+                      >
+                        <DestinationCard destination={destination} isActive={isActive} />
+                      </motion.div>
                     </motion.div>
-                  </motion.div>
-                );
-              })}
-            </AnimatePresence>
+                  );
+                })}
+              </AnimatePresence>
+            </div>
           </div>
         </div>
       </div>

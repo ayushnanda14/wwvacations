@@ -1,16 +1,123 @@
 'use client';
 
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Search, MapPin, Package as PackageIcon, Star, Clock, Users } from 'lucide-react';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { packagesData, Package } from '@/data/packagesData';
+import { destinationsData } from '@/data/destinationsData';
 
 const navItems = ['Home', 'Services', 'Destinations', 'Packages', 'About Us'];
+
+interface SearchResult {
+  type: 'package' | 'destination';
+  id: string;
+  title: string;
+  subtitle: string;
+  imageUrl?: string;
+  rating?: number;
+  duration?: string;
+  price?: string;
+  highlights?: string[];
+}
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeItem, setActiveItem] = useState('Home');
+  const [searchQuery, setSearchQuery] = useState('');
+  const [isSearchFocused, setIsSearchFocused] = useState(false);
+  const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
+  const searchRef = useRef<HTMLDivElement>(null);
+
+  // Search functionality
+  const performSearch = useMemo(() => {
+    if (!searchQuery.trim()) return [];
+
+    const query = searchQuery.toLowerCase();
+    const results: SearchResult[] = [];
+
+    // Search in packages
+    packagesData.forEach(pkg => {
+      const matchesName = pkg.packageName.toLowerCase().includes(query);
+      const matchesDestination = pkg.destination.toLowerCase().includes(query);
+      const matchesDescription = pkg.description.toLowerCase().includes(query);
+      const matchesHighlights = pkg.highlights?.some(h => h.toLowerCase().includes(query));
+      const matchesCategory = pkg.category.toLowerCase().includes(query);
+
+      if (matchesName || matchesDestination || matchesDescription || matchesHighlights || matchesCategory) {
+        results.push({
+          type: 'package',
+          id: pkg.id,
+          title: pkg.packageName,
+          subtitle: pkg.destination,
+          imageUrl: pkg.imageUrl,
+          rating: pkg.rating,
+          duration: pkg.duration,
+          price: pkg.price,
+          highlights: pkg.highlights
+        });
+      }
+    });
+
+    // Search in destinations
+    destinationsData.forEach(category => {
+      category.destinations.forEach(dest => {
+        const matchesName = dest.name.toLowerCase().includes(query);
+        const matchesPackages = dest.packages.some(pkg => 
+          pkg.packageName.toLowerCase().includes(query) ||
+          pkg.description.toLowerCase().includes(query)
+        );
+
+        if (matchesName || matchesPackages) {
+          results.push({
+            type: 'destination',
+            id: dest.name,
+            title: dest.name,
+            subtitle: `${dest.packages.length} packages available`,
+            imageUrl: dest.packages[0]?.imageUrl,
+            highlights: dest.packages[0]?.highlights
+          });
+        }
+      });
+    });
+
+    // Remove duplicates and limit results
+    const uniqueResults = results.filter((result, index, self) => 
+      index === self.findIndex(r => r.id === result.id)
+    );
+
+    return uniqueResults.slice(0, 8);
+  }, [searchQuery]);
+
+  useEffect(() => {
+    setSearchResults(performSearch);
+  }, [performSearch]);
+
+  // Close search dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (searchRef.current && !searchRef.current.contains(event.target as Node)) {
+        setIsSearchFocused(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  // Close search dropdown on escape key
+  useEffect(() => {
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setIsSearchFocused(false);
+        setSearchQuery('');
+      }
+    };
+
+    document.addEventListener('keydown', handleEscape);
+    return () => document.removeEventListener('keydown', handleEscape);
+  }, []);
 
   useEffect(() => {
     let throttleTimeout: NodeJS.Timeout | null = null;
@@ -32,7 +139,7 @@ export default function Navbar() {
         }
         
         throttleTimeout = null;
-      }, 100); // Run this at most every 100ms
+      }, 100);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -53,6 +160,16 @@ export default function Navbar() {
       return '/packages';
     }
     return `#${item.toLowerCase().replace(' ', '-')}`;
+  };
+
+  const handleSearchResultClick = (result: SearchResult) => {
+    if (result.type === 'package') {
+      window.location.href = `/package/${result.id}`;
+    } else {
+      window.location.href = `/packages?destination=${encodeURIComponent(result.title)}`;
+    }
+    setIsSearchFocused(false);
+    setSearchQuery('');
   };
 
   return (
@@ -81,8 +198,10 @@ export default function Navbar() {
             <li key={item}>
               <Link 
                 href={getNavLink(item)} 
-                className={`font-medium transition-colors hover:text-primary ${
-                  (isScrolled && !isMenuOpen) ? 'text-gray-900' : 'text-white'
+                className={`font-medium transition-colors ${
+                  (isScrolled && !isMenuOpen) 
+                    ? 'text-gray-900 hover:text-primary' 
+                    : 'text-white hover:text-primary'
                 }`}
               >
                 {item}
@@ -91,24 +210,154 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* Desktop Search + language + CTA */}
+        {/* Desktop Search + CTA */}
         <div className="hidden lg:flex items-center gap-4">
-          <input
-            type="text"
-            placeholder="Search Destination"
-            className={`h-9 rounded-full px-4 text-sm backdrop-blur placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-primary transition-all cursor-pointer ${
-              (isScrolled && !isMenuOpen)
-                ? 'bg-gray-100 text-gray-900' 
-                : 'bg-white/20 text-white placeholder:text-white/70'
-            }`}
-          />
+          {/* Search Bar */}
+          <div className="relative" ref={searchRef}>
+            <div className="relative">
+              <Search className={`absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 transition-colors z-10 ${
+                (isScrolled && !isMenuOpen) ? 'text-gray-500' : 'text-white/80'
+              }`} />
+              <input
+                type="text"
+                placeholder={isSearchFocused ? "Search destinations, packages..." : "Search"}
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                onFocus={() => setIsSearchFocused(true)}
+                className={`transition-all duration-300 rounded-full pl-10 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-primary ${
+                  (isScrolled && !isMenuOpen)
+                    ? 'bg-gray-100 text-gray-900 placeholder:text-gray-500' 
+                    : 'bg-white/20 text-white placeholder:text-white/70'
+                } ${isSearchFocused ? 'w-96' : 'w-40'} h-11`}
+              />
+            </div>
+
+            {/* Search Dropdown */}
+            <AnimatePresence>
+              {isSearchFocused && searchQuery.trim() && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                  transition={{ duration: 0.2, ease: 'easeOut' }}
+                  className="absolute top-full left-0 right-0 mt-2 backdrop-blur-xl border border-gray-200 rounded-2xl shadow-2xl overflow-hidden w-96 bg-white/90"
+                >
+                  <div className="max-h-96 overflow-y-auto">
+                    {searchResults.length > 0 ? (
+                      <div className="p-2">
+                        {searchResults.map((result, index) => (
+                          <motion.div
+                            key={`${result.type}-${result.id}`}
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: index * 0.05 }}
+                            onClick={() => handleSearchResultClick(result)}
+                            className="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-100 transition-all cursor-pointer group"
+                          >
+                            {/* Image */}
+                            <div className="flex-shrink-0 w-12 h-12 rounded-lg overflow-hidden bg-gray-200">
+                              {result.imageUrl ? (
+                                <img 
+                                  src={result.imageUrl} 
+                                  alt={result.title}
+                                  className="w-full h-full object-cover"
+                                />
+                              ) : (
+                                <div className="w-full h-full flex items-center justify-center">
+                                  {result.type === 'package' ? (
+                                    <PackageIcon className="w-6 h-6 text-gray-400" />
+                                  ) : (
+                                    <MapPin className="w-6 h-6 text-gray-400" />
+                                  )}
+                                </div>
+                              )}
+                            </div>
+
+                            {/* Content */}
+                            <div className="flex-1 min-w-0">
+                              <div className="flex items-center gap-2 mb-1">
+                                <h4 className="font-semibold text-gray-900 truncate group-hover:text-primary transition-colors">
+                                  {result.title}
+                                </h4>
+                                {result.type === 'package' && result.rating && (
+                                  <div className="flex items-center gap-1 bg-yellow-500/20 px-2 py-1 rounded-full">
+                                    <Star className="w-3 h-3 fill-yellow-400 text-yellow-400" />
+                                    <span className="text-xs text-yellow-600">{result.rating}</span>
+                                  </div>
+                                )}
+                              </div>
+                              <p className="text-sm text-gray-600 truncate">
+                                {result.subtitle}
+                              </p>
+                              
+                              {/* Additional info */}
+                              <div className="flex items-center gap-3 mt-2">
+                                {result.duration && (
+                                  <div className="flex items-center gap-1 text-xs text-gray-500">
+                                    <Clock className="w-3 h-3" />
+                                    <span>{result.duration}</span>
+                                  </div>
+                                )}
+                                {result.price && (
+                                  <span className="text-xs font-medium text-primary">{result.price}</span>
+                                )}
+                              </div>
+
+                              {/* Highlights */}
+                              {result.highlights && result.highlights.length > 0 && (
+                                <div className="flex flex-wrap gap-1 mt-2">
+                                  {result.highlights.slice(0, 2).map((highlight, idx) => (
+                                    <span
+                                      key={idx}
+                                      className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded-full"
+                                    >
+                                      {highlight}
+                                    </span>
+                                  ))}
+                                  {result.highlights.length > 2 && (
+                                    <span className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded-full">
+                                      +{result.highlights.length - 2}
+                                    </span>
+                                  )}
+                                </div>
+                              )}
+                            </div>
+
+                            {/* Type indicator */}
+                            <div className={`flex-shrink-0 px-2 py-1 rounded-full text-xs font-medium ${
+                              result.type === 'package' 
+                                ? 'bg-blue-100 text-blue-700'
+                                : 'bg-green-100 text-green-700'
+                            }`}>
+                              {result.type === 'package' ? 'Package' : 'Destination'}
+                            </div>
+                          </motion.div>
+                        ))}
+                      </div>
+                    ) : (
+                      <div className="p-6 text-center">
+                        <Search className="w-8 h-8 text-gray-400 mx-auto mb-2" />
+                        <p className="text-gray-600 text-sm">
+                          No results found for "{searchQuery}"
+                        </p>
+                        <p className="text-gray-500 text-xs mt-1">
+                          Try searching for destinations or package names
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+
           <Link
             href="#contact"
             className={`rounded-full border px-4 py-2 text-sm font-medium transition-all ${
               (isScrolled && !isMenuOpen)
                 ? 'border-primary text-primary hover:bg-primary hover:text-white' 
-                : 'border-white/40 text-white hover:bg-white/10'
-            } hover:backdrop-blur-sm hover:bg-white/10 transition-all cursor-pointer`}
+                : 'border-white/40 text-white hover:bg-white hover:text-gray-900'
+            } hover:backdrop-blur-sm transition-all cursor-pointer`}
           >
             Contact Us
           </Link>
@@ -161,11 +410,16 @@ export default function Navbar() {
                 ))}
               </ul>
               <div className="mt-8 border-t border-white/20 pt-6 flex flex-col gap-4">
-                <input
-                  type="text"
-                  placeholder="Search Destination"
-                  className="h-10 rounded-full px-4 text-sm bg-white/40 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-primary border border-white/20"
-                />
+                <div className="relative">
+                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-white/70" />
+                  <input
+                    type="text"
+                    placeholder="Search destinations, packages..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="h-10 rounded-full pl-10 pr-4 text-sm bg-white/40 text-white placeholder:text-white/70 focus:outline-none focus:ring-2 focus:ring-primary border border-white/20"
+                  />
+                </div>
                 <Link
                   href="#contact"
                   onClick={toggleMenu}

@@ -33,14 +33,14 @@ const footerLinks = {
   ],
   services: [
     { name: 'Tour Packages', href: 'packages' },
-    { name: 'Custom Tours', href: '#custom' },
-    { name: 'Group Travel', href: '#group' },
-    { name: 'Corporate Events', href: '#corporate' },
+    // { name: 'Custom Tours', href: '#custom' },
+    // { name: 'Group Travel', href: '#group' },
+    // { name: 'Corporate Events', href: '#corporate' },
   ],
   support: [
     { name: 'Help Center', href: '#help' },
     { name: 'Contact Us', href: '#contact' },
-    { name: 'Travel Insurance', href: '#insurance' },
+    // { name: 'Travel Insurance', href: '#insurance' },
     { name: 'Terms of Service', href: '#terms' },
   ],
   destinations: [
@@ -134,7 +134,7 @@ export default function Footer() {
           </motion.div> */}
 
           {/* Services Links */}
-          <motion.div variants={itemVariants}>
+          <motion.div className="col-start-4" variants={itemVariants}>
             <h4 className="font-semibold text-lg mb-4">Services</h4>
             <ul className="space-y-3">
               {footerLinks.services.map((link) => (
