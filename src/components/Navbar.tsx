@@ -198,7 +198,7 @@ export default function Navbar() {
       <nav className={`fixed inset-x-0 top-0 z-40 px-6 py-4 flex items-center justify-between transition-all duration-300 ${
         (isScrolled && !isMenuOpen)
           ? 'bg-white/90 backdrop-blur-md shadow-sm' 
-          : 'bg-transparent'
+          : 'bg-gradient-to-b from-white/50 to-white/0 backdrop-blur-[1px]'
       }`}>
         {/* Logo */}
         <Link href="/" className="text-2xl font-extrabold tracking-tight flex items-center gap-2">
@@ -211,7 +211,7 @@ export default function Navbar() {
             <span className="text-xl">🗺️</span>
           </div>
           <span className={`text-xl transition-colors ${
-            (isScrolled && !isMenuOpen) || isInDestinationsSection 
+            (isScrolled && !isMenuOpen)
               ? 'text-gray-900' 
               : 'text-white'
           }`}>wwvacations</span>

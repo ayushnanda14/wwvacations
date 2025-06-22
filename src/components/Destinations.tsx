@@ -133,7 +133,7 @@ export default function Destinations() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <div className="inline-block bg-white/40 backdrop-blur-lg rounded-xl p-4 shadow-lg">
+          <div className="inline-block bg-white/20 backdrop-blur-xs rounded-xl p-4 shadow-sm">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 font-satoshi" style={{ textShadow: '0 2px 20px rgba(0,0,0,0.2)'}}>
               Destinations
             </h2>
