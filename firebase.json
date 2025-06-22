@@ -6,19 +6,7 @@
       "**/.*",
       "**/node_modules/**"
     ],
-    "rewrites": [
-      {
-        "source": "/package/**",
-        "destination": "/package/[packageId]/index.html"
-      },
-      {
-        "source": "/packages",
-        "destination": "/packages/index.html"
-      },
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
-    ]
+    "cleanUrls": true,
+    "trailingSlash": false
   }
 } 
