@@ -241,7 +241,7 @@ export default function PackagesClient() {
                 className="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
               >
                 <option value="name">Sort by Name</option>
-                <option value="price">Sort by Price</option>
+                {/* <option value="price">Sort by Price</option> */}
                 <option value="duration">Sort by Duration</option>
                 <option value="rating">Sort by Rating</option>
               </select>
@@ -405,9 +405,9 @@ export default function PackagesClient() {
                         </div>
 
                         <div className="flex items-center justify-between mb-4">
-                          <div className="text-xl font-bold text-primary">
+                          {/* <div className="text-xl font-bold text-primary">
                             {pkg.price}
-                          </div>
+                          </div> */}
                           <button 
                             onClick={() => window.location.href = `/package/${pkg.id}`}
                             className="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors"
