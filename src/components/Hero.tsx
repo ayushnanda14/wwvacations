@@ -1,10 +1,32 @@
 'use client';
 import Image from 'next/image';
-import Link from 'next/link';
+import { motion, Variants, Transition } from 'framer-motion';
 
 export default function Hero() {
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants: Variants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+        ease: 'easeOut',
+      },
+    },
+  };
+
   return (
-    <section className="relative isolate h-[95vh] w-full overflow-hidden p-[10em]">
+    <section className="relative isolate h-[95vh] w-full overflow-hidden">
       {/* Background image */}
       <Image
         src="/images/hero.jpg"
@@ -16,15 +38,26 @@ export default function Hero() {
       {/* Gradient overlay */}
       <div className="absolute inset-0 bg-black/40" />
 
-      <div className="relative z-10 flex flex-col justify-center h-full max-w-7xl mx-auto px-6 text-white">
-        <div className="max-w-2xl">
-          <h1 className="text-[7em] md:text-6xl leading-tight font-medium tracking-tight">
+      <div className="relative z-10 flex flex-col justify-center h-full w-full md:max-w-7xl mx-auto px-6 sm:px-8 md:px-12 text-white">
+        <motion.div 
+          className="w-full md:max-w-2xl"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          <motion.h1 
+            className="text-4xl md:text-6xl leading-tight font-medium tracking-tight"
+            variants={itemVariants}
+          >
             Pack Your Bags, Let's Go Somewhere Amazing
-          </h1>
-          <p className="mt-6 text-lg text-white/90 leading-relaxed">
+          </motion.h1>
+          <motion.p 
+            className="mt-6 text-lg text-white/90 leading-relaxed"
+            variants={itemVariants}
+          >
             Whether you're chasing adventure, relaxation, or something in between,
             your next incredible journey starts here. Let's make it happen!
-          </p>
+          </motion.p>
 
           {/* Email capture */}
           {/* <form className="mt-8 flex flex-wrap gap-4 max-w-lg">
@@ -43,18 +76,20 @@ export default function Hero() {
           </form> */}
 
           {/* Explore CTA */}
-          <button
-            className="mt-8 inline-flex items-center gap-2 text-sm group text-white/90 hover:text-white transition-all cursor-pointer border border-white/30 rounded-full px-6 py-3 hover:bg-white/10 hover:backdrop-blur-sm"
-            onClick={() => {
-              document.getElementById('services')?.scrollIntoView({ 
-                behavior: 'smooth' 
-              });
-            }}
-          >
-            Explore More
-            <span className="inline-block transition-transform group-hover:translate-y-1">↓</span>
-          </button>
-        </div>
+          <motion.div variants={itemVariants}>
+            <button
+              className="mt-8 inline-flex items-center gap-2 text-sm group text-white/90 hover:text-white transition-all cursor-pointer border border-white/30 rounded-full px-6 py-3 hover:bg-white/10 hover:backdrop-blur-sm"
+              onClick={() => {
+                document.getElementById('services')?.scrollIntoView({ 
+                  behavior: 'smooth' 
+                });
+              }}
+            >
+              Explore More
+              <span className="inline-block transition-transform group-hover:translate-y-1">↓</span>
+            </button>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
