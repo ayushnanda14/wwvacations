@@ -52,7 +52,7 @@ export default function Services() {
   return (
     <section id="services" className="py-20 md:py-32 relative">
       {/* Background connecting line */}
-      <div className="hidden md:block absolute top-0 left-1/2 -translate-x-1/2 translate-y-[5%] h-[90%] w-0.5 bg-gray-200" />
+      <div className="hidden md:block absolute top-0 left-1/2 -translate-x-1/2 h-[90%] w-0.5 bg-gray-200" />
       
       <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 relative">
         <div className="space-y-20 md:space-y-32">

@@ -37,8 +37,8 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className={`fixed inset-x-0 top-0 z-50 px-6 py-4 flex items-center justify-between transition-all duration-300 ${
-        isScrolled 
+      <nav className={`fixed inset-x-0 top-0 z-40 px-6 py-4 flex items-center justify-between transition-all duration-300 ${
+        (isScrolled && !isMenuOpen)
           ? 'bg-white/90 backdrop-blur-md shadow-sm' 
           : 'bg-transparent'
       }`}>
@@ -46,13 +46,13 @@ export default function Navbar() {
         <Link href="/" className="text-2xl font-extrabold tracking-tight flex items-center gap-2">
           <span className="sr-only">WW Vacations</span>
           <div className={`h-8 w-8 rounded-full ring-1 grid place-items-center transition-colors ${
-            isScrolled 
+            (isScrolled && !isMenuOpen) 
               ? 'bg-white ring-black/10' 
               : 'bg-white/90 ring-white/20'
           }`}>
             <span className="text-xl">🗺️</span>
           </div>
-          <span className={`text-xl transition-colors ${isScrolled ? 'text-gray-900' : 'text-white'}`}>wwvacations</span>
+          <span className={`text-xl transition-colors ${(isScrolled && !isMenuOpen) ? 'text-gray-900' : 'text-white'}`}>wwvacations</span>
         </Link>
 
         {/* Desktop Nav links */}
@@ -62,7 +62,7 @@ export default function Navbar() {
               <Link 
                 href={`#${item.toLowerCase().replace(' ', '-')}`} 
                 className={`font-medium transition-colors hover:text-primary ${
-                  isScrolled ? 'text-gray-900' : 'text-white'
+                  (isScrolled && !isMenuOpen) ? 'text-gray-900' : 'text-white'
                 }`}
               >
                 {item}
@@ -77,7 +77,7 @@ export default function Navbar() {
             type="text"
             placeholder="Search Destination"
             className={`h-9 rounded-full px-4 text-sm backdrop-blur placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-primary transition-all cursor-pointer ${
-              isScrolled 
+              (isScrolled && !isMenuOpen)
                 ? 'bg-gray-100 text-gray-900' 
                 : 'bg-white/20 text-white placeholder:text-white/70'
             }`}
@@ -85,7 +85,7 @@ export default function Navbar() {
           <Link
             href="#contact"
             className={`rounded-full border px-4 py-2 text-sm font-medium transition-all ${
-              isScrolled 
+              (isScrolled && !isMenuOpen)
                 ? 'border-primary text-primary hover:bg-primary hover:text-white' 
                 : 'border-white/40 text-white hover:bg-white/10'
             } hover:backdrop-blur-sm hover:bg-white/10 transition-all cursor-pointer`}
@@ -98,7 +98,7 @@ export default function Navbar() {
         <button 
           onClick={toggleMenu}
           className={`lg:hidden p-2 rounded-md transition-colors ${
-            isScrolled 
+            (isScrolled && !isMenuOpen)
               ? 'hover:bg-gray-100 text-gray-900' 
               : 'hover:bg-white/20 text-white'
           }`}
@@ -116,7 +116,7 @@ export default function Navbar() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: '100%' }}
             transition={{ duration: 0.3, ease: 'easeInOut' }}
-            className="fixed inset-0 z-40  backdrop-blur-sm lg:hidden"
+            className="fixed inset-0 z-50 backdrop-blur-sm lg:hidden"
             onClick={toggleMenu}
           >
             <motion.div 
@@ -144,7 +144,7 @@ export default function Navbar() {
                 <input
                   type="text"
                   placeholder="Search Destination"
-                  className="h-10 rounded-full px-4 text-sm bg-white/10 text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-primary border border-white/20"
+                  className="h-10 rounded-full px-4 text-sm bg-white/40 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-primary border border-white/20"
                 />
                 <Link
                   href="#contact"

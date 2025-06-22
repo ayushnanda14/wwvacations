@@ -25,7 +25,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative h-[95vh] w-full">
+    <section id="home" className="relative h-[95vh] w-full">
       <div className="relative z-10 flex flex-col justify-center h-full w-full md:max-w-7xl mx-auto px-6 sm:px-8 md:px-12 text-white">
         <motion.div 
           className="w-full md:max-w-2xl"
