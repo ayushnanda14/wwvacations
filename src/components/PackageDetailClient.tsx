@@ -31,6 +31,7 @@ export default function PackageDetailClient({ pkg }: PackageDetailClientProps) {
             className="w-full h-full object-cover"
             width={1000}
             height={1000}
+            priority
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20" />
         </div>
@@ -212,10 +213,10 @@ export default function PackageDetailClient({ pkg }: PackageDetailClientProps) {
                 {/* Price Card */}
                 <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-lg">
                   <div className="text-center mb-6">
-                    <div className="text-4xl font-bold text-primary mb-2">
+                    {/* <div className="text-4xl font-bold text-primary mb-2">
                       {pkg.price}
-                    </div>
-                    <div className="text-gray-600">per person</div>
+                    </div> */}
+                    {/* <div className="text-gray-600">per person</div> */}
                   </div>
                   
                   {/* Contact Us Button */}
@@ -319,4 +320,4 @@ export default function PackageDetailClient({ pkg }: PackageDetailClientProps) {
       )}
     </div>
   );
-} 
+}
