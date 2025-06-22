@@ -160,6 +160,10 @@ export default function Navbar() {
     if (item === 'Packages') {
       return '/packages';
     }
+    // If we're on the packages page and clicking other nav items, go to home page with hash
+    if (typeof window !== 'undefined' && window.location.pathname === '/packages') {
+      return `/#${item.toLowerCase().replace(' ', '-')}`;
+    }
     return `#${item.toLowerCase().replace(' ', '-')}`;
   };
 
@@ -199,10 +203,10 @@ export default function Navbar() {
             <li key={item}>
               <Link 
                 href={getNavLink(item)} 
-                className={`font-medium transition-colors ${
+                className={`font-medium px-3 py-2 rounded-full transition-all ${
                   (isScrolled && !isMenuOpen) 
-                    ? 'text-gray-900 hover:text-primary' 
-                    : 'text-white hover:text-primary'
+                    ? 'text-gray-900 hover:bg-gray-100/80 hover:backdrop-blur-sm' 
+                    : 'text-white hover:bg-white/20 hover:backdrop-blur-sm'
                 }`}
               >
                 {item}
