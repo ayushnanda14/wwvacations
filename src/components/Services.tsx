@@ -6,19 +6,19 @@ const services = [
     tag: 'Our Service',
     title: 'Travel Made Simple, Adventures Made Amazing',
     description: 'Whether it\'s a relaxing getaway or an adrenaline-filled adventure, we make every moment unforgettable.',
-    imageUrl: '/images/services/service-1.jpg',
+    imageUrl: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
   },
   {
     tag: 'Gallery',
     title: 'Explore Breathtaking Locations Worldwide',
     description: 'From serene beaches to majestic mountains, we offer a curated selection of destinations to satisfy your wanderlust.',
-    imageUrl: '/images/services/service-2.jpg',
+    imageUrl: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
   },
   {
     tag: 'Package',
     title: 'All-Inclusive Packages for a Hassle-Free Trip',
     description: 'Enjoy seamless travel with our packages that cover everything from flights and accommodations to guided tours.',
-    imageUrl: '/images/services/service-3.jpg',
+    imageUrl: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
   },
 ];
 
@@ -109,6 +109,9 @@ export default function Services() {
           ))}
         </div>
       </div>
+
+      {/* Elegant gradient fade to destinations section */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-gray-50 via-gray-50/50 to-transparent" />
     </section>
   );
 } 
