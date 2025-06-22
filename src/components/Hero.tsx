@@ -37,14 +37,14 @@ export default function Hero() {
             className="text-4xl md:text-6xl leading-tight font-medium tracking-tight"
             variants={itemVariants}
           >
-            Pack Your Bags, Let's Go Somewhere Amazing
+            Pack Your Bags, Let&apos;s Go Somewhere Amazing
           </motion.h1>
           <motion.p 
             className="mt-6 text-lg text-white/90 leading-relaxed"
             variants={itemVariants}
           >
-            Whether you're chasing adventure, relaxation, or something in between,
-            your next incredible journey starts here. Let's make it happen!
+            Whether you&apos;re chasing adventure, relaxation, or something in between,
+            your next incredible journey starts here. Let&apos;s make it happen!
           </motion.p>
 
           {/* Email capture */}
