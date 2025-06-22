@@ -29,6 +29,7 @@ export default function Navbar() {
   const [searchQuery, setSearchQuery] = useState('');
   const [isSearchFocused, setIsSearchFocused] = useState(false);
   const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
+  const [isInDestinationsSection, setIsInDestinationsSection] = useState(false);
   const searchRef = useRef<HTMLDivElement>(null);
 
   // Search functionality
@@ -127,10 +128,25 @@ export default function Navbar() {
       if (throttleTimeout) return;
 
       throttleTimeout = setTimeout(() => {
-        setIsScrolled(window.scrollY > 50);
+        const scrollY = window.scrollY;
+        const destinationsSection = document.getElementById('destinations');
+        
+        // Check if we're in the destinations section
+        let isInDestinationsSection = false;
+        if (destinationsSection) {
+          const destTop = destinationsSection.offsetTop;
+          const destBottom = destTop + destinationsSection.offsetHeight;
+          isInDestinationsSection = scrollY >= destTop - 100 && scrollY <= destBottom - 100;
+        }
+
+        // Update destinations section state
+        setIsInDestinationsSection(isInDestinationsSection);
+
+        // Keep transparent if in destinations section, otherwise use scroll threshold
+        setIsScrolled(!isInDestinationsSection && scrollY > 50);
 
         const sections = navItems.map(item => document.getElementById(item.toLowerCase().replace(' ', '-')));
-        const scrollPosition = window.scrollY + window.innerHeight / 2;
+        const scrollPosition = scrollY + window.innerHeight / 2;
 
         for (const section of sections) {
           if (section && section.offsetTop <= scrollPosition && section.offsetTop + section.offsetHeight > scrollPosition) {
@@ -194,7 +210,11 @@ export default function Navbar() {
           }`}>
             <span className="text-xl">🗺️</span>
           </div>
-          <span className={`text-xl transition-colors ${(isScrolled && !isMenuOpen) ? 'text-gray-900' : 'text-white'}`}>wwvacations</span>
+          <span className={`text-xl transition-colors ${
+            (isScrolled && !isMenuOpen) || isInDestinationsSection 
+              ? 'text-gray-900' 
+              : 'text-white'
+          }`}>wwvacations</span>
         </Link>
 
         {/* Desktop Nav links */}
@@ -204,7 +224,7 @@ export default function Navbar() {
               <Link 
                 href={getNavLink(item)} 
                 className={`font-medium px-3 py-2 rounded-full transition-all ${
-                  (isScrolled && !isMenuOpen) 
+                  (isScrolled && !isMenuOpen) || isInDestinationsSection
                     ? 'text-gray-900 hover:bg-gray-100/80 hover:backdrop-blur-sm' 
                     : 'text-white hover:bg-white/20 hover:backdrop-blur-sm'
                 }`}
@@ -221,7 +241,7 @@ export default function Navbar() {
           <div className="relative" ref={searchRef}>
             <div className="relative">
               <Search className={`absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 transition-colors z-10 ${
-                (isScrolled && !isMenuOpen) ? 'text-gray-500' : 'text-white/80'
+                (isScrolled && !isMenuOpen) || isInDestinationsSection ? 'text-gray-500' : 'text-white/80'
               }`} />
               <input
                 type="text"
@@ -230,7 +250,7 @@ export default function Navbar() {
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onFocus={() => setIsSearchFocused(true)}
                 className={`transition-all duration-300 rounded-full pl-10 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-primary ${
-                  (isScrolled && !isMenuOpen)
+                  (isScrolled && !isMenuOpen) || isInDestinationsSection
                     ? 'bg-gray-100 text-gray-900 placeholder:text-gray-500' 
                     : 'bg-white/20 text-white placeholder:text-white/70'
                 } ${isSearchFocused ? 'w-96' : 'w-40'} h-11`}
@@ -359,7 +379,7 @@ export default function Navbar() {
           <Link
             href="#contact"
             className={`rounded-full border px-4 py-2 text-sm font-medium transition-all ${
-              (isScrolled && !isMenuOpen)
+              (isScrolled && !isMenuOpen) || isInDestinationsSection
                 ? 'border-primary text-primary hover:bg-primary hover:text-white' 
                 : 'border-white/40 text-white hover:bg-white hover:text-gray-900'
             } hover:backdrop-blur-sm transition-all cursor-pointer`}
@@ -372,7 +392,7 @@ export default function Navbar() {
         <button 
           onClick={toggleMenu}
           className={`lg:hidden p-2 rounded-md transition-colors ${
-            (isScrolled && !isMenuOpen)
+            (isScrolled && !isMenuOpen) || isInDestinationsSection
               ? 'hover:bg-gray-100 text-gray-900' 
               : 'hover:bg-white/20 text-white'
           }`}
