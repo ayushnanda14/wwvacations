@@ -13,22 +13,35 @@ export default function Navbar() {
   const [activeItem, setActiveItem] = useState('Home');
 
   useEffect(() => {
+    let throttleTimeout: NodeJS.Timeout | null = null;
+
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      if (throttleTimeout) return;
 
-      const sections = navItems.map(item => document.getElementById(item.toLowerCase().replace(' ', '-')));
-      const scrollPosition = window.scrollY + window.innerHeight / 2;
+      throttleTimeout = setTimeout(() => {
+        setIsScrolled(window.scrollY > 50);
 
-      for (const section of sections) {
-        if (section && section.offsetTop <= scrollPosition && section.offsetTop + section.offsetHeight > scrollPosition) {
-          setActiveItem(navItems.find(item => item.toLowerCase().replace(' ', '-') === section.id) || 'Home');
-          break;
+        const sections = navItems.map(item => document.getElementById(item.toLowerCase().replace(' ', '-')));
+        const scrollPosition = window.scrollY + window.innerHeight / 2;
+
+        for (const section of sections) {
+          if (section && section.offsetTop <= scrollPosition && section.offsetTop + section.offsetHeight > scrollPosition) {
+            setActiveItem(navItems.find(item => item.toLowerCase().replace(' ', '-') === section.id) || 'Home');
+            break;
+          }
         }
-      }
+        
+        throttleTimeout = null;
+      }, 100); // Run this at most every 100ms
     };
 
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (throttleTimeout) {
+        clearTimeout(throttleTimeout);
+      }
+    };
   }, []);
   
   const toggleMenu = () => {

@@ -4,6 +4,8 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     unoptimized: true,
+    quality: 70,
   },
 };
-module.exports = nextConfig;
+
+export default nextConfig;
