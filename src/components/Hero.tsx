@@ -1,6 +1,5 @@
 'use client';
-import Image from 'next/image';
-import { motion, Variants, Transition } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 
 export default function Hero() {
   const containerVariants: Variants = {
@@ -26,18 +25,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative isolate h-[95vh] w-full overflow-hidden">
-      {/* Background image */}
-      <Image
-        src="/images/hero.jpg"
-        alt="Scenic mountain road"
-        fill
-        priority
-        className="object-cover"
-      />
-      {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-black/40" />
-
+    <section className="relative h-[95vh] w-full">
       <div className="relative z-10 flex flex-col justify-center h-full w-full md:max-w-7xl mx-auto px-6 sm:px-8 md:px-12 text-white">
         <motion.div 
           className="w-full md:max-w-2xl"
