@@ -176,10 +176,6 @@ export default function Navbar() {
     if (item === 'Packages') {
       return '/packages';
     }
-    // If we're on the packages page and clicking other nav items, go to home page with hash
-    if (typeof window !== 'undefined' && window.location.pathname === '/packages') {
-      return `/#${item.toLowerCase().replace(' ', '-')}`;
-    }
     return `#${item.toLowerCase().replace(' ', '-')}`;
   };
 
@@ -193,12 +189,26 @@ export default function Navbar() {
     setSearchQuery('');
   };
 
+  const handleNavClick = (item: string, e: React.MouseEvent) => {
+    if (item === 'Packages') {
+      return; // Let the default Link behavior handle this
+    }
+    
+    // If we're on the packages page, navigate to home page with hash
+    if (typeof window !== 'undefined' && window.location.pathname === '/packages') {
+      e.preventDefault();
+      window.location.href = `/#${item.toLowerCase().replace(' ', '-')}`;
+    }
+  };
+
   return (
     <>
       <nav className={`fixed inset-x-0 top-0 z-40 px-6 py-4 flex items-center justify-between transition-all duration-300 ${
         (isScrolled && !isMenuOpen)
           ? 'bg-white/90 backdrop-blur-md shadow-sm' 
-          : 'bg-gradient-to-b from-white/50 to-white/0 backdrop-blur-[1px]'
+          : (isInDestinationsSection)
+            ? 'bg-gradient-to-b from-white/50 to-white/0 backdrop-blur-[1px]'
+            : 'bg-white/0 backdrop-blur-[2px]'
       }`}>
         {/* Logo */}
         <Link href="/" className="text-2xl font-extrabold tracking-tight flex items-center gap-2">
@@ -228,6 +238,7 @@ export default function Navbar() {
                     ? 'text-gray-900 hover:bg-gray-100/80 hover:backdrop-blur-sm' 
                     : 'text-white hover:bg-white/20 hover:backdrop-blur-sm'
                 }`}
+                onClick={(e) => handleNavClick(item, e)}
               >
                 {item}
               </Link>
@@ -422,7 +433,10 @@ export default function Navbar() {
                   <li key={item}>
                     <Link 
                       href={getNavLink(item)} 
-                      onClick={toggleMenu}
+                      onClick={(e) => {
+                        handleNavClick(item, e);
+                        toggleMenu();
+                      }}
                       className={`text-2xl font-medium transition-all px-4 py-2 block rounded-lg ${
                         activeItem === item
                           ? 'bg-primary/80 text-white hover:bg-primary/70'
