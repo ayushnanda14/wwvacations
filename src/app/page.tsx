@@ -16,6 +16,7 @@ export default function Home() {
             alt="Scenic mountain road"
             fill
             priority
+            quality={70}
             className="object-cover"
           />
           {/* Gradient overlay for fade effect */}
