@@ -48,6 +48,13 @@ export default function Navbar() {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const getNavLink = (item: string) => {
+    if (item === 'Packages') {
+      return '/packages';
+    }
+    return `#${item.toLowerCase().replace(' ', '-')}`;
+  };
+
   return (
     <>
       <nav className={`fixed inset-x-0 top-0 z-40 px-6 py-4 flex items-center justify-between transition-all duration-300 ${
@@ -73,7 +80,7 @@ export default function Navbar() {
           {navItems.map(item => (
             <li key={item}>
               <Link 
-                href={`#${item.toLowerCase().replace(' ', '-')}`} 
+                href={getNavLink(item)} 
                 className={`font-medium transition-colors hover:text-primary ${
                   (isScrolled && !isMenuOpen) ? 'text-gray-900' : 'text-white'
                 }`}
@@ -140,7 +147,7 @@ export default function Navbar() {
                 {navItems.map(item => (
                   <li key={item}>
                     <Link 
-                      href={`#${item.toLowerCase().replace(' ', '-')}`} 
+                      href={getNavLink(item)} 
                       onClick={toggleMenu}
                       className={`text-2xl font-medium transition-all px-4 py-2 block rounded-lg ${
                         activeItem === item

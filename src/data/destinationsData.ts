@@ -71,7 +71,7 @@ export const destinationsData = [
             "packageName": "Bhutan Tour (5 Nights / 6 Days)",
             "duration": "5 Nights / 6 Days",
             "type": "International",
-            "imageUrl": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+            "imageUrl": "https://images.unsplash.com/photo-1578556881786-851d4b79cb73?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
             "description": "A cultural tour into the heart of the Himalayas, this package offers a blend of nature and adventure, featuring iconic landmarks like the Tiger's Nest Monastery and Punakha Dzong.",
             "highlights": [
               "Tiger's Nest Monastery",
@@ -203,7 +203,7 @@ export const destinationsData = [
             "packageName": "Jaipur, Ajmer, Pushkar, Udaipur Tour (5 Nights / 6 Days)",
             "duration": "5 Nights / 6 Days",
             "type": "Domestic",
-            "imageUrl": "https://images.unsplash.com/photo-1667849357658-16bfaec30885?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "imageUrl": "https://images.unsplash.com/photo-1686603707626-5c3cf4d9ea4b?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
             "description": "Experience the vibrant culture and royal heritage of Rajasthan, from the majestic Pink City of Jaipur and the spiritual charm of Ajmer & Pushkar to the romantic City of Lakes, Udaipur.",
             "highlights": [
               "Jaipur Forts & Palaces",
@@ -301,7 +301,7 @@ export const destinationsData = [
             "packageName": "Maldives Getaway (4 Nights / 5 Days)",
             "duration": "4 Nights / 5 Days",
             "type": "International",
-            "imageUrl": "https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2080&q=80",
+            "imageUrl": "https://images.unsplash.com/photo-1586495985096-787fb4a54ac0?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
             "description": "The perfect escape for honeymooners and luxury travelers, featuring stays in luxurious overwater bungalows, snorkeling in crystal-clear waters, and romantic sunset cruises.",
             "highlights": [
               "Overwater Bungalows",

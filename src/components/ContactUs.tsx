@@ -97,7 +97,7 @@ export default function ContactUs() {
             variants={itemVariants}
           >
             Have questions about our packages or need help planning your next adventure? 
-            We're here to help make your travel dreams come true.
+            We&apos;re here to help make your travel dreams come true.
           </motion.p>
         </motion.div>
 
@@ -114,7 +114,7 @@ export default function ContactUs() {
               className="text-2xl font-bold text-gray-900"
               variants={itemVariants}
             >
-              Let's Connect
+              Let&apos;s Connect
             </motion.h3>
             <motion.p
               className="text-gray-600 leading-relaxed"

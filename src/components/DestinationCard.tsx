@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Destination } from './Destinations'; // Updated import
 import { FiGlobe, FiMapPin, FiBox, FiClock, FiStar } from 'react-icons/fi';
+import Link from 'next/link';
 
 interface DestinationCardProps {
   destination: Destination; // Updated prop
@@ -87,16 +88,18 @@ export default function DestinationCard({ destination, isActive }: DestinationCa
         </div>
 
         <div className="flex gap-3 pt-4">
-          <button className="flex-1 px-6 py-3 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
-            aria-label={`Show details for ${name}`}
+          <Link 
+            href={`/packages?destination=${encodeURIComponent(name)}`}
+            className="flex-1 px-6 py-3 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 text-center"
+            aria-label={`Show packages for ${name}`}
           >
             Check Packages
-          </button>
-          <button className="flex-1 px-6 py-3 bg-transparent border border-gray-300 text-gray-800 font-semibold rounded-xl hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-300"
+          </Link>
+          {/* <button className="flex-1 px-6 py-3 bg-transparent border border-gray-300 text-gray-800 font-semibold rounded-xl hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-300"
             aria-label={`Bookmark ${name}`}
           >
             Bookmark
-          </button>
+          </button> */}
         </div>
       </div>
     </motion.div>

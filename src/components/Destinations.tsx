@@ -141,28 +141,36 @@ export default function Destinations() {
         </motion.div>
         
         {/* Navigation Buttons */}
-        <motion.button 
-          onClick={() => handleButtonClick('prev')}
-          disabled={activeCardIndex === 0}
-          className="fixed left-4 md:left-8 top-1/2 -translate-y-1/2 z-40 bg-white/80 backdrop-blur-sm p-3 rounded-full shadow-lg hover:bg-white transition disabled:opacity-30 disabled:cursor-not-allowed"
-          aria-label="Previous Destination"
-          initial={{ opacity: 0, x: -20 }}
-          animate={isInView ? { opacity: 1, x: 0 } : {}}
-          transition={{ delay: 0.3 }}
-        >
-          <FiChevronLeft size={24} />
-        </motion.button>
-        <motion.button 
-          onClick={() => handleButtonClick('next')}
-          disabled={activeCardIndex === allDestinations.length - 1}
-          className="fixed right-4 md:right-8 top-1/2 -translate-y-1/2 z-40 bg-white/80 backdrop-blur-sm p-3 rounded-full shadow-lg hover:bg-white transition disabled:opacity-30 disabled:cursor-not-allowed"
-          aria-label="Next Destination"
-          initial={{ opacity: 0, x: 20 }}
-          animate={isInView ? { opacity: 1, x: 0 } : {}}
-          transition={{ delay: 0.3 }}
-        >
-          <FiChevronRight size={24} />
-        </motion.button>
+        <AnimatePresence>
+          {isInView && (
+            <>
+              <motion.button 
+                onClick={() => handleButtonClick('prev')}
+                disabled={activeCardIndex === 0}
+                className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-40 bg-white/80 backdrop-blur-sm p-3 rounded-full shadow-lg hover:bg-white transition disabled:opacity-30 disabled:cursor-not-allowed"
+                aria-label="Previous Destination"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ delay: 0.3 }}
+              >
+                <FiChevronLeft size={24} />
+              </motion.button>
+              <motion.button 
+                onClick={() => handleButtonClick('next')}
+                disabled={activeCardIndex === allDestinations.length - 1}
+                className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-40 bg-white/80 backdrop-blur-sm p-3 rounded-full shadow-lg hover:bg-white transition disabled:opacity-30 disabled:cursor-not-allowed"
+                aria-label="Next Destination"
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: 20 }}
+                transition={{ delay: 0.3 }}
+              >
+                <FiChevronRight size={24} />
+              </motion.button>
+            </>
+          )}
+        </AnimatePresence>
 
         <div className="min-h-[60vh] md:min-h-[80vh] flex items-center justify-center">
           {/* Mobile Carousel */}

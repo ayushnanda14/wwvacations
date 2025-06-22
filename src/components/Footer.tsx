@@ -32,7 +32,7 @@ const footerLinks = {
     { name: 'Press', href: '#press' },
   ],
   services: [
-    { name: 'Tour Packages', href: '#packages' },
+    { name: 'Tour Packages', href: 'packages' },
     { name: 'Custom Tours', href: '#custom' },
     { name: 'Group Travel', href: '#group' },
     { name: 'Corporate Events', href: '#corporate' },
@@ -117,7 +117,7 @@ export default function Footer() {
           </motion.div>
 
           {/* Company Links */}
-          <motion.div variants={itemVariants}>
+          {/* <motion.div variants={itemVariants}>
             <h4 className="font-semibold text-lg mb-4">Company</h4>
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
@@ -131,7 +131,7 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-          </motion.div>
+          </motion.div> */}
 
           {/* Services Links */}
           <motion.div variants={itemVariants}>
