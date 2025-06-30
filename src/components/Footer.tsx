@@ -41,7 +41,8 @@ const footerLinks = {
     { name: 'Help Center', href: '#help' },
     { name: 'Contact Us', href: '#contact' },
     // { name: 'Travel Insurance', href: '#insurance' },
-    { name: 'Terms of Service', href: '#terms' },
+    { name: 'Privacy Policy', href: '/privacy' },
+    { name: 'Terms & Conditions', href: '/terms' },
   ],
   destinations: [
     { name: 'Asia', href: '#asia' },
@@ -209,11 +210,11 @@ export default function Footer() {
             © {currentYear} WW Vacations. All rights reserved.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="#privacy" className="text-gray-400 hover:text-white text-sm transition-colors">
+            <a href="/privacy" className="text-gray-400 hover:text-white text-sm transition-colors">
               Privacy Policy
             </a>
-            <a href="#terms" className="text-gray-400 hover:text-white text-sm transition-colors">
-              Terms of Service
+            <a href="/terms" className="text-gray-400 hover:text-white text-sm transition-colors">
+              Terms & Conditions
             </a>
             <a href="#cookies" className="text-gray-400 hover:text-white text-sm transition-colors">
               Cookie Policy

@@ -123,10 +123,10 @@ export default function ContactUs() {
           </motion.p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+        <div className="grid grid-cols-1 xl:grid-cols-3 gap-8 lg:gap-12">
           {/* Contact Information */}
           <motion.div
-            className="space-y-8"
+            className="xl:col-span-2 space-y-8"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
@@ -145,50 +145,53 @@ export default function ContactUs() {
               You can contact us directly via phone or by filling out the quick enquiry form on our website. Once we receive your query, our representatives will promptly get in touch, understand your requirements, and guide you with the best travel options.
             </motion.p>
 
-            {/* Helpline Numbers */}
-            <motion.div variants={itemVariants}>
-              <h4 className="text-lg font-semibold text-gray-900 mb-4">Helpline Numbers</h4>
-              <div className="space-y-4">
-                {contactInfo.map((contact, index) => (
-                  <div
-                    key={index}
-                    className="flex items-start space-x-4 p-4 rounded-xl bg-gray-50 hover:bg-gray-100 transition-colors"
-                  >
-                    <div className="flex-shrink-0 w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
-                      <contact.icon className="w-6 h-6 text-white" />
+            {/* Helpline Numbers and Office Locations in a grid */}
+            <motion.div variants={itemVariants} className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Helpline Numbers */}
+              <div>
+                <h4 className="text-lg font-semibold text-gray-900 mb-4">Helpline Numbers</h4>
+                <div className="space-y-3">
+                  {contactInfo.map((contact, index) => (
+                    <div
+                      key={index}
+                      className="flex items-start space-x-3 p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors"
+                    >
+                      <div className="flex-shrink-0 w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+                        <contact.icon className="w-5 h-5 text-white" />
+                      </div>
+                      <div>
+                        <h5 className="font-semibold text-gray-900 text-sm">{contact.title}</h5>
+                        <p className="text-primary font-medium text-sm">{contact.details}</p>
+                        <p className="text-xs text-gray-600 mt-1">{contact.description}</p>
+                      </div>
                     </div>
-                    <div>
-                      <h5 className="font-semibold text-gray-900">{contact.title}</h5>
-                      <p className="text-primary font-medium">{contact.details}</p>
-                      <p className="text-sm text-gray-600 mt-1">{contact.description}</p>
-                    </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
-            </motion.div>
 
-            {/* Office Locations */}
-            <motion.div variants={itemVariants}>
-              <h4 className="text-lg font-semibold text-gray-900 mb-4">Our Offices</h4>
-              <div className="space-y-4">
-                {officeInfo.map((office, index) => (
-                  <div
-                    key={index}
-                    className="p-4 rounded-xl bg-gray-50 hover:bg-gray-100 transition-colors"
-                  >
-                    <div className="flex items-start space-x-4">
-                      <div className="flex-shrink-0 w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
-                        <office.icon className="w-6 h-6 text-white" />
-                      </div>
-                      <div className="flex-1">
-                        <h5 className="font-semibold text-gray-900">{office.title}</h5>
-                        <p className="text-gray-700">{office.details}</p>
-                        <p className="text-gray-600 text-sm">{office.city}</p>
-                        <p className="text-primary font-medium mt-1">{office.phone}</p>
+              {/* Office Locations */}
+              <div>
+                <h4 className="text-lg font-semibold text-gray-900 mb-4">Our Offices</h4>
+                <div className="space-y-3">
+                  {officeInfo.map((office, index) => (
+                    <div
+                      key={index}
+                      className="p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors"
+                    >
+                      <div className="flex items-start space-x-3">
+                        <div className="flex-shrink-0 w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+                          <office.icon className="w-5 h-5 text-white" />
+                        </div>
+                        <div className="flex-1">
+                          <h5 className="font-semibold text-gray-900 text-sm">{office.title}</h5>
+                          <p className="text-gray-700 text-sm">{office.details}</p>
+                          <p className="text-gray-600 text-xs">{office.city}</p>
+                          <p className="text-primary font-medium text-sm mt-1">{office.phone}</p>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </motion.div>
 
@@ -214,7 +217,7 @@ export default function ContactUs() {
 
           {/* Contact Form */}
           <motion.div
-            className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100"
+            className="bg-white rounded-2xl shadow-xl p-6 border border-gray-100 h-fit"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
@@ -227,7 +230,7 @@ export default function ContactUs() {
               Send us a Message
             </motion.h3>
             
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-5">
               <motion.div variants={itemVariants}>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
                   Full Name
