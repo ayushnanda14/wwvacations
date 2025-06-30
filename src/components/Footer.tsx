@@ -26,7 +26,7 @@ const itemVariants: Variants = {
 
 const footerLinks = {
   company: [
-    { name: 'About Us', href: '#about' },
+    { name: 'About Us', href: '/about' },
     { name: 'Our Team', href: '#team' },
     { name: 'Careers', href: '#careers' },
     { name: 'Press', href: '#press' },
@@ -117,7 +117,7 @@ export default function Footer() {
           </motion.div>
 
           {/* Company Links */}
-          {/* <motion.div variants={itemVariants}>
+          <motion.div variants={itemVariants}>
             <h4 className="font-semibold text-lg mb-4">Company</h4>
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
@@ -131,10 +131,10 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-          </motion.div> */}
+          </motion.div>
 
           {/* Services Links */}
-          <motion.div className="col-start-4" variants={itemVariants}>
+          <motion.div variants={itemVariants}>
             <h4 className="font-semibold text-lg mb-4">Services</h4>
             <ul className="space-y-3">
               {footerLinks.services.map((link) => (

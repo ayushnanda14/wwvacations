@@ -176,6 +176,9 @@ export default function Navbar() {
     if (item === 'Packages') {
       return '/packages';
     }
+    if (item === 'About Us') {
+      return '/about';
+    }
     return `#${item.toLowerCase().replace(' ', '-')}`;
   };
 
@@ -190,7 +193,7 @@ export default function Navbar() {
   };
 
   const handleNavClick = (item: string, e: React.MouseEvent) => {
-    if (item === 'Packages') {
+    if (item === 'Packages' || item === 'About Us') {
       return; // Let the default Link behavior handle this
     }
     
