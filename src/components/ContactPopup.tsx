@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiX, FiMail, FiPhone, FiMapPin, FiSend } from 'react-icons/fi';
+import { FiX, FiMail, FiPhone, FiSend } from 'react-icons/fi';
 
 interface ContactPopupProps {
   isOpen: boolean;
@@ -42,7 +42,7 @@ export default function ContactPopup({ isOpen, onClose, packageName }: ContactPo
     },
     {
       icon: FiPhone,
-      title: '24×7 Helpline',
+      title: '24/7 Helpline',
       details: '+91-7855966158',
     },
     {

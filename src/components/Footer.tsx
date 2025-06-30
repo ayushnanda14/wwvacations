@@ -1,6 +1,6 @@
 'use client';
 import { motion, Variants } from 'framer-motion';
-import { FiFacebook, FiTwitter, FiInstagram, FiLinkedin, FiMail, FiPhone, FiMapPin } from 'react-icons/fi';
+import { FiMail, FiPhone, FiMapPin } from 'react-icons/fi';
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -52,12 +52,12 @@ const footerLinks = {
   ],
 };
 
-const socialLinks = [
-  { name: 'Facebook', icon: FiFacebook, href: 'https://facebook.com' },
-  { name: 'Twitter', icon: FiTwitter, href: 'https://twitter.com' },
-  { name: 'Instagram', icon: FiInstagram, href: 'https://instagram.com' },
-  { name: 'LinkedIn', icon: FiLinkedin, href: 'https://linkedin.com' },
-];
+// const socialLinks = [
+//   { name: 'Facebook', icon: FiFacebook, href: 'https://facebook.com' },
+//   { name: 'Twitter', icon: FiTwitter, href: 'https://twitter.com' },
+//   { name: 'Instagram', icon: FiInstagram, href: 'https://instagram.com' },
+//   { name: 'LinkedIn', icon: FiLinkedin, href: 'https://linkedin.com' },
+// ];
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();

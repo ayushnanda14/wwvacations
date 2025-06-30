@@ -126,7 +126,7 @@ export default function AboutClient() {
               className="text-2xl md:text-3xl text-primary font-semibold mb-8 italic"
               variants={itemVariants}
             >
-              "Atithi Devo Bhava" – The Guest is God
+              &quot;Atithi Devo Bhava&quot; - The Guest is God
             </motion.p>
             
             <motion.p
@@ -134,7 +134,7 @@ export default function AboutClient() {
               variants={itemVariants}
             >
               At World Wide Vacations, we believe every journey is a blessing, and every traveler is a reflection of the divine. 
-              In Indian culture, time is considered a gift – the "present" – not for its material value, but for the emotions 
+              In Indian culture, time is considered a gift - the &quot;present&quot; - not for its material value, but for the emotions
               and memories it carries. We honor this spirit by turning your travel dreams into cherished, unforgettable experiences.
             </motion.p>
 
@@ -249,7 +249,7 @@ export default function AboutClient() {
                 whileHover={{ scale: 1.02, y: -5 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                From solo travelers and couples to family groups and corporate teams, we cater to all – delivering 
+                From solo travelers and couples to family groups and corporate teams, we cater to all - delivering 
                 highly personalized services with a focus on comfort, quality, and cultural depth. With our headquarters 
                 based in Bhubaneswar, Odisha, and a network of associate offices pan India and abroad, we ensure 
                 seamless travel support from start to finish.
@@ -312,7 +312,7 @@ export default function AboutClient() {
                   <h3 className="text-2xl font-bold text-gray-900 mb-6">Our Mission</h3>
                   <p className="text-gray-700 leading-relaxed">
                     To deliver excellence and authenticity in travel by blending modern comfort with cultural richness. 
-                    Our team of seasoned professionals is committed to crafting journeys that reflect each traveler's 
+                    Our team of seasoned professionals is committed to crafting journeys that reflect each traveler&apos;s
                     unique needs, desires, and expectations.
                   </p>
                 </div>
@@ -335,7 +335,7 @@ export default function AboutClient() {
                   </motion.div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-6">Our Motto</h3>
                   <p className="text-gray-700 italic leading-relaxed">
-                    "Personalized service at the best price – with honesty, heart, and hospitality."
+                    &quot;Personalized service at the best price - with honesty, heart, and hospitality.&quot;
                   </p>
                 </div>
               </motion.div>
@@ -481,8 +481,8 @@ export default function AboutClient() {
               transition={{ type: "spring", stiffness: 300 }}
             >
               <p>
-                Come, travel with us, and let's create stories that last forever. At World Wide Vacations, 
-                your journey is not just a trip – it's an experience woven with care, culture, and commitment.
+                Come, travel with us, and let&apos;s create stories that last forever. At World Wide Vacations, 
+                your journey is not just a trip - it&apos;s an experience woven with care, culture, and commitment.
               </p>
             </motion.div>
           </div>

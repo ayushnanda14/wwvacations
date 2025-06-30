@@ -1,6 +1,6 @@
 'use client';
 import { motion, Variants } from 'framer-motion';
-import { FiFileText, FiCreditCard, FiCalendar, FiShield, FiAlertTriangle, FiMail, FiPhone, FiGlobe, FiClock, FiMapPin } from 'react-icons/fi';
+import { FiFileText, FiCreditCard, FiShield, FiAlertTriangle, FiMail, FiPhone, FiGlobe, FiClock, FiMapPin } from 'react-icons/fi';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
