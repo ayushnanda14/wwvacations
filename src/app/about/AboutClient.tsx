@@ -190,13 +190,13 @@ export default function AboutClient() {
               {worldWideJourney.map((item, index) => (
                 <motion.div
                   key={index}
-                  className="group relative"
+                  className="group relative w-full h-full min-h-[200px]"
                   variants={itemVariants}
                   whileHover={{ scale: 1.1, rotateY: 10 }}
                   whileTap={{ scale: 0.95 }}
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-xl blur-xl group-hover:blur-2xl transition-all duration-300 opacity-0 group-hover:opacity-100" />
-                  <div className="relative text-center p-6 bg-gradient-to-br from-white/90 to-white/70 backdrop-blur-sm rounded-xl border border-blue-200/50 shadow-lg hover:shadow-2xl transition-all duration-300">
+                  <div className="relative text-center p-6 bg-gradient-to-br from-white/90 to-white/70 backdrop-blur-sm rounded-xl border border-blue-200/50 shadow-lg hover:shadow-2xl transition-all duration-300 h-full flex flex-col justify-center">
                     <motion.div
                       className="text-4xl font-bold text-transparent bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text mb-3"
                       whileHover={{ scale: 1.2 }}
@@ -205,7 +205,7 @@ export default function AboutClient() {
                       {item.letter}
                     </motion.div>
                     <item.icon className="w-8 h-8 text-blue-600 mx-auto mb-3 group-hover:scale-110 transition-transform duration-300" />
-                    <div className="text-sm text-gray-700 font-medium leading-tight">{item.word}</div>
+                    <div className="text-sm text-gray-700 font-medium leading-tight flex-1 flex items-center justify-center">{item.word}</div>
                   </div>
                 </motion.div>
               ))}

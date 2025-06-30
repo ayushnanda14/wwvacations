@@ -90,16 +90,16 @@ export default function Footer() {
               </div>
               <div className="flex items-center space-x-3 text-gray-300">
                 <FiPhone className="w-4 h-4" />
-                <span>+91 99388 34989</span>
+                <span>+91-7855966158</span>
               </div>
               <div className="flex items-center space-x-3 text-gray-300">
                 <FiMapPin className="w-4 h-4" />
-                <span>123 Travel Street, City, Country</span>
+                <span>BMC Bhawani Mall, Sahid Nagar, Bhubaneswar, Odisha – 751007</span>
               </div>
             </div>
 
             {/* Social Links */}
-            <div className="flex space-x-4">
+            {/* <div className="flex space-x-4">
               {socialLinks.map((social) => (
                 <motion.a
                   key={social.name}
@@ -113,7 +113,7 @@ export default function Footer() {
                   <social.icon className="w-5 h-5" />
                 </motion.a>
               ))}
-            </div>
+            </div> */}
           </motion.div>
 
           {/* Company Links */}

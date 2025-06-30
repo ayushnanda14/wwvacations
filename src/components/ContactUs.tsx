@@ -1,7 +1,7 @@
 'use client';
 import { motion, Variants } from 'framer-motion';
 import { useState } from 'react';
-import { FiMail, FiPhone, FiMapPin, FiSend } from 'react-icons/fi';
+import { FiMail, FiPhone, FiMapPin, FiSend, FiClock, FiHome } from 'react-icons/fi';
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -27,23 +27,46 @@ const itemVariants: Variants = {
 
 const contactInfo = [
   {
+    icon: FiPhone,
+    title: '24×7 Helpline',
+    details: '+91-7855966158',
+    description: 'For New Bookings',
+  },
+  {
+    icon: FiPhone,
+    title: 'Existing Bookings',
+    details: '+91-9348997368',
+    description: 'Support for current bookings',
+  },
+  {
     icon: FiMail,
     title: 'Email Us',
     details: 'info@wwvacations.com',
     description: 'Get in touch via email',
   },
+];
+
+const officeInfo = [
   {
-    icon: FiPhone,
-    title: 'Call Us',
-    details: '+91 99388 34989',
-    description: 'Speak with our travel experts',
+    icon: FiHome,
+    title: 'Head Office',
+    details: 'BMC Bhawani Mall, Sahid Nagar',
+    city: 'Bhubaneswar, Odisha – 751007',
+    phone: '+91-7855966158',
   },
   {
-    icon: FiMapPin,
-    title: 'Visit Us',
-    details: '123 Travel Street, City',
-    description: 'Drop by our office anytime',
+    icon: FiHome,
+    title: 'Branch Office – Dhenkanal',
+    details: 'Pijuli Bagicha, Korian',
+    city: 'Dhenkanal, Odisha – 759001',
+    phone: '+91-9348997368',
   },
+];
+
+const operationalHours = [
+  { day: 'Monday to Friday', hours: '10:00 AM – 5:00 PM IST' },
+  { day: 'Saturday', hours: '10:00 AM – 5:00 PM IST' },
+  { day: 'Online Support & Helpline', hours: 'Available 24×7' },
 ];
 
 export default function ContactUs() {
@@ -84,20 +107,19 @@ export default function ContactUs() {
             className="inline-block px-4 py-1.5 text-sm font-medium text-gray-700 bg-gray-100 rounded-full mb-4"
             variants={itemVariants}
           >
-            Get In Touch
+            Contact Us – World Wide Vacations
           </motion.span>
           <motion.h2
             className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 leading-tight"
             variants={itemVariants}
           >
-            Ready to Start Your Journey?
+            24×7 Assistance for All Your Travel Needs
           </motion.h2>
           <motion.p
-            className="mt-6 text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto"
+            className="mt-6 text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto"
             variants={itemVariants}
           >
-            Have questions about our packages or need help planning your next adventure? 
-            We&apos;re here to help make your travel dreams come true.
+            At World Wide Vacations, we are committed to providing round-the-clock service to ensure your travel planning and journey are smooth and stress-free. Whether you're booking a new trip or seeking assistance for an existing one, our team is always ready to help you with professional support and personalized care.
           </motion.p>
         </motion.div>
 
@@ -120,29 +142,74 @@ export default function ContactUs() {
               className="text-gray-600 leading-relaxed"
               variants={itemVariants}
             >
-              Our travel experts are ready to help you plan the perfect trip. 
-              Reach out to us through any of the channels below.
+              You can contact us directly via phone or by filling out the quick enquiry form on our website. Once we receive your query, our representatives will promptly get in touch, understand your requirements, and guide you with the best travel options.
             </motion.p>
 
-            <div className="space-y-6">
-              {contactInfo.map((contact, index) => (
-                <motion.div
-                  key={index}
-                  className="flex items-start space-x-4 p-4 rounded-xl bg-gray-50 hover:bg-gray-100 transition-colors"
-                  variants={itemVariants}
-                  whileHover={{ scale: 1.02 }}
-                >
-                  <div className="flex-shrink-0 w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
-                    <contact.icon className="w-6 h-6 text-white" />
+            {/* Helpline Numbers */}
+            <motion.div variants={itemVariants}>
+              <h4 className="text-lg font-semibold text-gray-900 mb-4">Helpline Numbers</h4>
+              <div className="space-y-4">
+                {contactInfo.map((contact, index) => (
+                  <div
+                    key={index}
+                    className="flex items-start space-x-4 p-4 rounded-xl bg-gray-50 hover:bg-gray-100 transition-colors"
+                  >
+                    <div className="flex-shrink-0 w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
+                      <contact.icon className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <h5 className="font-semibold text-gray-900">{contact.title}</h5>
+                      <p className="text-primary font-medium">{contact.details}</p>
+                      <p className="text-sm text-gray-600 mt-1">{contact.description}</p>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900">{contact.title}</h4>
-                    <p className="text-primary font-medium">{contact.details}</p>
-                    <p className="text-sm text-gray-600 mt-1">{contact.description}</p>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Office Locations */}
+            <motion.div variants={itemVariants}>
+              <h4 className="text-lg font-semibold text-gray-900 mb-4">Our Offices</h4>
+              <div className="space-y-4">
+                {officeInfo.map((office, index) => (
+                  <div
+                    key={index}
+                    className="p-4 rounded-xl bg-gray-50 hover:bg-gray-100 transition-colors"
+                  >
+                    <div className="flex items-start space-x-4">
+                      <div className="flex-shrink-0 w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
+                        <office.icon className="w-6 h-6 text-white" />
+                      </div>
+                      <div className="flex-1">
+                        <h5 className="font-semibold text-gray-900">{office.title}</h5>
+                        <p className="text-gray-700">{office.details}</p>
+                        <p className="text-gray-600 text-sm">{office.city}</p>
+                        <p className="text-primary font-medium mt-1">{office.phone}</p>
+                      </div>
+                    </div>
                   </div>
-                </motion.div>
-              ))}
-            </div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Operational Hours */}
+            <motion.div variants={itemVariants}>
+              <h4 className="text-lg font-semibold text-gray-900 mb-4">Operational Hours</h4>
+              <div className="bg-blue-50 rounded-xl p-4">
+                <div className="flex items-center gap-3 mb-3">
+                  <FiClock className="w-5 h-5 text-blue-600" />
+                  <span className="font-medium text-blue-900">In-Office Support</span>
+                </div>
+                <div className="space-y-2">
+                  {operationalHours.map((schedule, index) => (
+                    <div key={index} className="flex justify-between text-sm">
+                      <span className="text-gray-700">{schedule.day}</span>
+                      <span className="font-medium text-gray-900">{schedule.hours}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
           </motion.div>
 
           {/* Contact Form */}
@@ -236,6 +303,18 @@ export default function ContactUs() {
                 Send Message
               </motion.button>
             </form>
+
+            <motion.div 
+              className="mt-6 p-4 bg-green-50 rounded-lg border border-green-200"
+              variants={itemVariants}
+            >
+              <p className="text-sm text-green-800 text-center font-medium">
+                World Wide Vacations – Delivering Destinations, Creating Memories.
+              </p>
+              <p className="text-xs text-green-700 text-center mt-1">
+                Contact us today to begin your journey!
+              </p>
+            </motion.div>
           </motion.div>
         </div>
       </div>

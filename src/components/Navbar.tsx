@@ -30,7 +30,26 @@ export default function Navbar() {
   const [isSearchFocused, setIsSearchFocused] = useState(false);
   const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
   const [isInDestinationsSection, setIsInDestinationsSection] = useState(false);
+  const [isAboutPage, setIsAboutPage] = useState(false);
   const searchRef = useRef<HTMLDivElement>(null);
+
+  // Check if we're on the About Us page
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const checkAboutPage = () => {
+        setIsAboutPage(window.location.pathname === '/about');
+      };
+      
+      checkAboutPage();
+      
+      // Listen for route changes
+      window.addEventListener('popstate', checkAboutPage);
+      
+      return () => {
+        window.removeEventListener('popstate', checkAboutPage);
+      };
+    }
+  }, []);
 
   // Search functionality
   const performSearch = useMemo(() => {
@@ -179,7 +198,7 @@ export default function Navbar() {
     if (item === 'About Us') {
       return '/about';
     }
-    return `#${item.toLowerCase().replace(' ', '-')}`;
+    return `/#${item.toLowerCase().replace(' ', '-')}`;
   };
 
   const handleSearchResultClick = (result: SearchResult) => {
@@ -207,7 +226,7 @@ export default function Navbar() {
   return (
     <>
       <nav className={`fixed inset-x-0 top-0 z-40 px-6 py-4 flex items-center justify-between transition-all duration-300 ${
-        (isScrolled && !isMenuOpen)
+        (isScrolled && !isMenuOpen) || isAboutPage || isSearchFocused
           ? 'bg-white/90 backdrop-blur-md shadow-sm' 
           : (isInDestinationsSection)
             ? 'bg-gradient-to-b from-white/50 to-white/0 backdrop-blur-[1px]'
@@ -217,14 +236,14 @@ export default function Navbar() {
         <Link href="/" className="text-2xl font-extrabold tracking-tight flex items-center gap-2">
           <span className="sr-only">WW Vacations</span>
           <div className={`h-8 w-8 rounded-full ring-1 grid place-items-center transition-colors ${
-            (isScrolled && !isMenuOpen) 
+            (isScrolled && !isMenuOpen) || isAboutPage || isSearchFocused
               ? 'bg-white ring-black/10' 
               : 'bg-white/90 ring-white/20'
           }`}>
             <span className="text-xl">🗺️</span>
           </div>
           <span className={`text-xl transition-colors ${
-            (isScrolled && !isMenuOpen)
+            (isScrolled && !isMenuOpen) || isAboutPage || isSearchFocused
               ? 'text-gray-900' 
               : 'text-white'
           }`}>wwvacations</span>
@@ -237,7 +256,7 @@ export default function Navbar() {
               <Link 
                 href={getNavLink(item)} 
                 className={`font-medium px-3 py-2 rounded-full transition-all ${
-                  (isScrolled && !isMenuOpen) || isInDestinationsSection
+                  (isScrolled && !isMenuOpen) || isInDestinationsSection || isAboutPage || isSearchFocused
                     ? 'text-gray-900 hover:bg-gray-100/80 hover:backdrop-blur-sm' 
                     : 'text-white hover:bg-white/20 hover:backdrop-blur-sm'
                 }`}
@@ -255,7 +274,7 @@ export default function Navbar() {
           <div className="relative" ref={searchRef}>
             <div className="relative">
               <Search className={`absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 transition-colors z-10 ${
-                (isScrolled && !isMenuOpen) || isInDestinationsSection ? 'text-gray-500' : 'text-white/80'
+                (isScrolled && !isMenuOpen) || isInDestinationsSection || isAboutPage || isSearchFocused ? 'text-gray-500' : 'text-white/80'
               }`} />
               <input
                 type="text"
@@ -264,7 +283,7 @@ export default function Navbar() {
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onFocus={() => setIsSearchFocused(true)}
                 className={`transition-all duration-300 rounded-full pl-10 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-primary ${
-                  (isScrolled && !isMenuOpen) || isInDestinationsSection
+                  (isScrolled && !isMenuOpen) || isInDestinationsSection || isAboutPage || isSearchFocused
                     ? 'bg-gray-100 text-gray-900 placeholder:text-gray-500' 
                     : 'bg-white/20 text-white placeholder:text-white/70'
                 } ${isSearchFocused ? 'w-96' : 'w-40'} h-11`}
@@ -300,6 +319,8 @@ export default function Navbar() {
                                   src={result.imageUrl} 
                                   alt={result.title}
                                   className="w-full h-full object-cover"
+                                  width={12}
+                                  height={12}
                                 />
                               ) : (
                                 <div className="w-full h-full flex items-center justify-center">
@@ -337,9 +358,9 @@ export default function Navbar() {
                                     <span>{result.duration}</span>
                                   </div>
                                 )}
-                                {result.price && (
+                                {/* {result.price && (
                                   <span className="text-xs font-medium text-primary">{result.price}</span>
-                                )}
+                                )} */}
                               </div>
 
                               {/* Highlights */}
@@ -393,7 +414,7 @@ export default function Navbar() {
           <Link
             href="#contact"
             className={`rounded-full border px-4 py-2 text-sm font-medium transition-all ${
-              (isScrolled && !isMenuOpen) || isInDestinationsSection
+              (isScrolled && !isMenuOpen) || isInDestinationsSection || isAboutPage || isSearchFocused
                 ? 'border-primary text-primary hover:bg-primary hover:text-white' 
                 : 'border-white/40 text-white hover:bg-white hover:text-gray-900'
             } hover:backdrop-blur-sm transition-all cursor-pointer`}
@@ -406,7 +427,7 @@ export default function Navbar() {
         <button 
           onClick={toggleMenu}
           className={`lg:hidden p-2 rounded-md transition-colors ${
-            (isScrolled && !isMenuOpen) || isInDestinationsSection
+            (isScrolled && !isMenuOpen) || isInDestinationsSection || isAboutPage || isSearchFocused
               ? 'hover:bg-gray-100 text-gray-900' 
               : 'hover:bg-white/20 text-white'
           }`}
