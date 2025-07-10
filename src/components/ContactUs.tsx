@@ -76,11 +76,36 @@ export default function ContactUs() {
     subject: '',
     message: '',
   });
+  const [loading, setLoading] = useState(false);
+  const [feedback, setFeedback] = useState<null | { type: 'success' | 'error'; message: string }>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
+    setLoading(true);
+    setFeedback(null);
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (res.ok) {
+        setFeedback({ type: 'success', message: 'Message sent successfully! We will get back to you shortly.' });
+        // Reset form
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        const data = await res.json();
+        setFeedback({ type: 'error', message: data.error || 'Something went wrong. Please try again later.' });
+      }
+    } catch (error) {
+      setFeedback({ type: 'error', message: 'Failed to send message. Please check your internet connection and try again.' });
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -294,15 +319,35 @@ export default function ContactUs() {
 
               <motion.button
                 type="submit"
-                className="w-full bg-primary text-white py-3 px-6 rounded-lg font-medium hover:bg-primary/90 transition-colors flex items-center justify-center gap-2"
+                disabled={loading}
+                className="w-full bg-primary text-white py-3 px-6 rounded-lg font-medium transition-colors flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed hover:bg-primary/90"
                 variants={itemVariants}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+                whileHover={{ scale: loading ? 1 : 1.02 }}
+                whileTap={{ scale: loading ? 1 : 0.98 }}
               >
-                <FiSend className="w-4 h-4" />
-                Send Message
+                {loading ? (
+                  <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4l3-3-3-3v4a8 8 0 00-8 8h4z"></path>
+                  </svg>
+                ) : (
+                  <>
+                    <FiSend className="w-4 h-4" />
+                    Send Message
+                  </>
+                )}
               </motion.button>
             </form>
+
+            {feedback && (
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className={`mt-6 p-4 rounded-lg text-center text-sm font-medium ${feedback.type === 'success' ? 'bg-green-50 text-green-800 border border-green-200' : 'bg-red-50 text-red-800 border border-red-200'}`}
+              >
+                {feedback.message}
+              </motion.div>
+            )}
 
             <motion.div 
               className="mt-6 p-4 bg-green-50 rounded-lg border border-green-200"

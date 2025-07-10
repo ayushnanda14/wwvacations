@@ -84,11 +84,19 @@ export default function RootLayout({
         {/* Google Font: Poppins */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="preload"
+          as="image"
+          href="/images/hero.jpg"
+          {...{ fetchpriority: "high" }}
+        />
         {/* <link
           href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
           rel="stylesheet"
         /> */}
         <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,600,700&display=swap" rel="stylesheet" />
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1396187025527862"
+          crossOrigin="anonymous"></script>
       </head>
       <body
         className="font-satoshi antialiased"
