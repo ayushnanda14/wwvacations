@@ -101,7 +101,7 @@ export default function ContactUs() {
         const data = await res.json();
         setFeedback({ type: 'error', message: data.error || 'Something went wrong. Please try again later.' });
       }
-    } catch (error) {
+    } catch {
       setFeedback({ type: 'error', message: 'Failed to send message. Please check your internet connection and try again.' });
     } finally {
       setLoading(false);

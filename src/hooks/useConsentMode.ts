@@ -3,8 +3,8 @@ import { useEffect } from "react";
 
 declare global {
   interface Window {
-    dataLayer: any[];
-    gtag: (...args: any[]) => void;
+    dataLayer: unknown[];
+    gtag: (...args: unknown[]) => void;
   }
 }
 
@@ -13,7 +13,7 @@ export function useConsentMode() {
     if (typeof window === "undefined") return;
 
     window.dataLayer = window.dataLayer || [];
-    function gtag(...args: any[]) {
+    function gtag(...args: unknown[]) {
       window.dataLayer.push(args);
     }
     window.gtag = window.gtag || gtag;
