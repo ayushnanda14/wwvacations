@@ -95,8 +95,19 @@ export default function RootLayout({
           rel="stylesheet"
         /> */}
         <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,600,700&display=swap" rel="stylesheet" />
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1396187025527862"
-          crossOrigin="anonymous"></script>
+        <!-- Google tag (gtag.js) -->
+        {/* Google tag (gtag.js) */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17334639250"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'AW-17334639250');
+            `,
+          }}
+        />
       </head>
       <body
         className="font-satoshi antialiased"
