@@ -47,18 +47,18 @@ const contactInfo = [
 ];
 
 const officeInfo = [
+  // {
+  //   icon: FiHome,
+  //   title: 'Head Office',
+  //   details: 'BMC Bhawani Mall, Sahid Nagar',
+  //   city: 'Bhubaneswar, Odisha – 751007',
+  //   phone: '+91-7855966158',
+  // },
   {
     icon: FiHome,
-    title: 'Head Office',
-    details: 'BMC Bhawani Mall, Sahid Nagar',
-    city: 'Bhubaneswar, Odisha – 751007',
-    phone: '+91-7855966158',
-  },
-  {
-    icon: FiHome,
-    title: 'Branch Office – Dhenkanal',
+    title: 'Office Address',
     details: 'Pijuli Bagicha, Korian',
-    city: 'Dhenkanal, Odisha – 759001',
+    city: 'Dhenkanal, Odisha - 759001',
     phone: '+91-9348997368',
   },
 ];
