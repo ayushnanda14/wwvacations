@@ -44,3 +44,5 @@ next-env.d.ts
 /out
 
 package-lock.json
+firebase-debug.log
+.husky
