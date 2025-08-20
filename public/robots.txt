@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 Disallow: /search
-Sitemap: https://wwvacations.com/sitemap.xml 
+Sitemap: https://wwvacations.com/sitemap.xml
