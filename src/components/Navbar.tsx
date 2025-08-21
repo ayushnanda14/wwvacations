@@ -240,7 +240,7 @@ export default function Navbar() {
               ? 'bg-white ring-black/10' 
               : 'bg-white/90 ring-white/20'
           }`}>
-            <span className="text-xl">🗺️</span>
+            <img src="world-wide-vacations.png" alt="logo" className="logo" />
           </div>
           <span className={`text-xl transition-colors ${
             (isScrolled && !isMenuOpen) || isAboutPage || isSearchFocused
