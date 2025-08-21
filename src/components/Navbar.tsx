@@ -234,12 +234,12 @@ export default function Navbar() {
       }`}>
         {/* Logo */}
         <Link href="/" className="text-2xl font-extrabold tracking-tight flex items-center gap-2">
-          <div className={`h-8 w-8 rounded-full ring-1 grid place-items-center transition-colors ${
+          <div className={`h-full w-full rounded-full ring-1 grid place-items-center transition-colors ${
             (isScrolled && !isMenuOpen) || isAboutPage || isSearchFocused
               ? 'bg-white ring-black/10' 
               : 'bg-white/90 ring-white/20'
           }`}>
-            <img src="images/world-wide-vacations.png" alt="logo" className="logo" />
+            <img src="images/world-wide-vacations.png" alt="logo" className="w-12 object-contain" />
           </div>
           <span className={`text-xl transition-colors ${
             (isScrolled && !isMenuOpen) || isAboutPage || isSearchFocused
