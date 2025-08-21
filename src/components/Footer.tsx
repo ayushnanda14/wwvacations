@@ -91,11 +91,11 @@ export default function Footer() {
               </div>
               <div className="flex items-center space-x-3 text-gray-300">
                 <FiPhone className="w-4 h-4" />
-                <span>+91-7855966158</span>
+                <span>+91-93375 97368</span>
               </div>
               <div className="flex items-center space-x-3 text-gray-300">
                 <FiMapPin className="w-4 h-4" />
-                <span>BMC Bhawani Mall, Sahid Nagar, Bhubaneswar, Odisha – 751007</span>
+                <span>Grand Bazaar, Phulnakhara, NH 16, Bhubaneswar - Cuttack Highway, Bhubaneswar, India, 754001</span>
               </div>
             </div>
 
