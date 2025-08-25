@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { packagesData } from '@/data/packagesData';
 import { destinationsData } from '@/data/destinationsData';
 import Image from 'next/image';
+import image from '@/logo.png';
 
 const navItems = ['Home', 'Services', 'Destinations', 'Packages', 'About Us'];
 
@@ -239,7 +240,7 @@ export default function Navbar() {
               ? 'bg-white ring-black/10' 
               : 'bg-white/90 ring-white/20'
           }`}>
-            <img src="images/world-wide-vacations.png" alt="logo" className="w-12 object-contain" />
+            <Image width={100} height={100} alt='WW Vacation Image' src={image.src} className="w-12 object-contain"/>
           </div>
           <span className={`text-xl transition-colors ${
             (isScrolled && !isMenuOpen) || isAboutPage || isSearchFocused
