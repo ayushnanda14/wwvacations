@@ -3740,7 +3740,7 @@ export const packagesData: Package[] =
       "packageName": "Thailand Tour",
       "duration": "3 Nights / 4 Days",
       "type": "International",
-      "imageUrl": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      "imageUrl": "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?q=80&w=839&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "description": "A short and exciting getaway that offers a perfect blend of city life in Bangkok and beach relaxation in Pattaya, featuring the world-famous Alcazar show and a tour of iconic temples. ",
       "highlights": [
         "Bangkok & Pattaya Combo ",
@@ -3845,7 +3845,7 @@ export const packagesData: Package[] =
       "packageName": "Thailand Tour",
       "duration": "5 Nights / 6 Days",
       "type": "International",
-      "imageUrl": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      "imageUrl": "https://images.unsplash.com/photo-1563492065599-3520f775eeed?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "description": "Enjoy the perfect mix of beach relaxation and city exploration with a speedboat trip to Coral Island, a visit to Safari World & Marine Park, and a mesmerizing cultural performance at the Alcazar show. ",
       "highlights": [
         "Bangkok & Pattaya Combo ",
