@@ -4298,6 +4298,665 @@ export const packagesData: Package[] =
           ]
         }
       ]
+    },
+    {
+      "id": "package_30",
+      "packageName": "Kerala Escape Tour",
+      "duration": "4 Nights / 5 Days",
+      "type": "Domestic",
+      "imageUrl": "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "description": "A perfect mix of history, nature, and adventure, this tour explores Hanoi's cultural landmarks, the UNESCO World Heritage site of Halong Bay on a luxury cruise, and the historic Cu Chi Tunnels. ",
+      "highlights": [
+        "Cochin – Heritage & Culture",
+        "Munnar – Hill Station of Tea Gardens",
+        "Thekkady – Wildlife & Spices",
+        "Alleppey – Backwaters & Houseboat"
+      ],
+      "destination": "Kerala",
+      "category": "Cultural & Adventure",
+      "price": "Starting from ₹XX,XXX per person ",
+      "difficulty": "Easy",
+      "bestTime": "March to April, October to November",
+      "accommodation": "Hotels and 1 Night on Halong Bay Luxury Cruise ",
+      "meals": "Daily Breakfast & meals on cruise ",
+      "transportation": "Private Transportation, Cruise ",
+      "activities": [
+        "City tours ",
+        "Overnight cruising ",
+        "Kayaking ",
+        "Cave exploration ",
+        "Historical tunnel tours "
+      ],
+      "inclusions": [
+        "Accommodation in 3-star / 4-star hotels & houseboat ",
+        "Daily breakfast (All meals on houseboat) ",
+        "Private AC vehicle for transfers & sightseeing ",
+        "Professional English/Hindi-speaking driver ",
+        "Toll, parking, driver charges & fuel costs "
+      ],
+      "exclusions": [
+        "Monument / Sanctuary entry fees ",
+        "Lunch & Dinner (except on houseboat) ",
+        "Personal expenses (shopping, tips, etc.) ",
+        "Optional activities (Jeep Safari, Kathakali Show, Elephant Ride) "
+      ],
+      "terms": [
+        "50% advance payment required at the time of booking. ",
+        "The remaining 50% to be paid upon arrival before the start of the tour. ",
+        "Payment methods: Bank transfer, UPI, credit/debit card, or cash (where applicable). "
+      ],
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Arrival at Cochin – City Tour",
+          "description": "Arrive in Cochin and explore its cultural highlights. ",
+          "activities": [
+            "Arrival at Cochin Airport / Railway Station ",
+            "Sightseeing: Fort Kochi, Dutch Palace, St. Francis Church, Jewish Synagogue, Marine Drive ",
+            "Overnight Stay: Cochin "
+          ],
+          "accommodation": "Cochin ",
+          "meals": [
+            "None"
+          ]
+        },
+        {
+          "day": 2,
+          "title": "Cochin → Munnar (130 km / 4 hrs)",
+          "description": "Travel to the UNESCO World Heritage site of Halong Bay, board a luxury cruise, and spend the day kayaking and visiting the Sung Sot Cave. ",
+          "activities": [
+            "Scenic drive through hills & waterfalls ",
+            "En-route visit Valara & Cheeyappara Waterfalls "
+          ],
+          "accommodation": "Munnar ",
+          "meals": [
+            "Breakfast "
+          ]
+        },
+        {
+          "day": 3,
+          "title": "Munnar Sightseeing",
+          "description": "After a morning Tai Chi session on the cruise, travel to Ninh Binh, the 'Halong Bay on land,' for a scenic boat ride through caves and limestone peaks. ",
+          "activities": [
+            "Sightseeing: Eravikulam National Park, Mattupetty Dam, Echo Point, Kundala Lake, Tea Museum ",
+            "Overnight Stay: Munnar "
+          ],
+          "accommodation": "Munnar ",
+          "meals": [
+            "Breakfast "
+          ]
+        },
+        {
+          "day": 4,
+          "title": "Munnar → Thekkady (90 km / 3 hrs) → Alleppey (140 km / 4 hrs)",
+          "description": "Fly to Ho Chi Minh City and explore its French colonial landmarks like the Notre Dame Cathedral and the bustling Ben Thanh Market. ",
+          "activities": [
+            "Breakfast at the hotel & check-out ",
+            "Morning in Thekkady: Periyar Lake boat ride, spice plantation visit, optional cultural show. ",
+            "Continue to Alleppey ",
+            "Check-in to Houseboat – backwater cruise with lunch, snacks & dinner"
+          ],
+          "accommodation": "Houseboat (Alleppey) ",
+          "meals": [
+            "Breakfast "
+          ]
+        },
+        {
+          "day": 5,
+          "title": "Alleppey → Cochin Departure (80 km / 2 hrs)",
+          "description": "Delve into Vietnam's war history at the Cu Chi Tunnels, then experience local life with a boat ride through the coconut-lined canals of the Mekong Delta. ",
+          "activities": [
+            "Breakfast on the houseboat & check-out ",
+            "Transfer to Cochin Airport / Railway Station ",
+            "ur Ends with Beautiful Memories of Kerala! "
+          ],
+          "accommodation": "None ",
+          "meals": [
+            "Breakfast "
+          ]
+        }
+      ]
+    },
+    {
+      "id": "package_31",
+      "packageName": "Gujarat Heritage Tour",
+      "duration": "4 Nights / 5 Days",
+      "type": "Domestic",
+      "imageUrl": "https://images.unsplash.com/photo-1620103143245-9efb3e4a7553?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "description": "A perfect mix of history, nature, and adventure, this tour explores Hanoi's cultural landmarks, the UNESCO World Heritage site of Halong Bay on a luxury cruise, and the historic Cu Chi Tunnels. ",
+      "highlights": [
+        "Ahmedabad – The Heritage Start Point",
+        "Dwarka – The Abode of Lord Krishna",
+        "Porbandar – The Land of Gandhi",
+        "Somnath – Sacred Jyotirlinga Shrine"
+      ],
+      "destination": "Gujarat",
+      "category": "Cultural & Adventure",
+      "price": "Starting from ₹XX,XXX per person ",
+      "difficulty": "Easy",
+      "bestTime": "March to April, October to November",
+      "accommodation": "Hotels and 1 Night on Halong Bay Luxury Cruise ",
+      "meals": "Daily Breakfast & meals on cruise ",
+      "transportation": "Private Transportation, Cruise ",
+      "activities": [
+        "City tours ",
+        "Overnight cruising ",
+        "Kayaking ",
+        "Cave exploration ",
+        "Historical tunnel tours "
+      ],
+      "inclusions": [
+        "Accommodation in 3-star / 4-star hotels ",
+        "Daily breakfast ",
+        "Private AC vehicle for transfers & sightseeing ",
+        "Professional English/Hindi-speaking driver ",
+        "Toll, parking, driver charges & fuel costs "
+      ],
+      "exclusions": [
+        "Monument / Temple entry fees ",
+        "Meals (except breakfast) ",
+        "Personal expenses (shopping, tips, etc.) ",
+        "Boat ride charges (Bet Dwarka) "
+      ],
+      "terms": [
+        "50% advance payment required at the time of booking. ",
+        "The remaining 50% to be paid upon arrival before the start of the tour. ",
+        "Payments can be made via bank transfer, UPI, credit/debit card, or cash. "
+      ],
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Arrival in Ahmedabad – Heritage Tour",
+          "description": "Arrival at Ahmedabad Airport / Railway Station & hotel transfer. ",
+          "activities": [
+            "Sabarmati Ashram – Mahatma Gandhi’s residence ",
+            "Adalaj Stepwell – Architectural marvel ",
+            "Akshardham Temple – Optional light & sound show ",
+            "Evening free for shopping at Law Garden"
+          ],
+          "accommodation": "Ahmedabad ",
+          "meals": [
+            "Breakfast"
+          ]
+        },
+        {
+          "day": 2,
+          "title": "Ahmedabad → Dwarka (450 km / 8 hrs)",
+          "description": "Arrival at Dwarka Airport / Railway Station & hotel transfer. ",
+          "activities": [
+            "Breakfast at the hotel & check-out ",
+            "Drive to Dwarka ",
+            "Evening: Attend Aarti at Dwarkadhish Temple "
+          ],
+          "accommodation": "Dwarka ",
+          "meals": [
+            "Breakfast "
+          ]
+        },
+        {
+          "day": 3,
+          "title": "Dwarka – Excursion to Bet Dwarka",
+          "description": "After a morning Tai Chi session on the cruise, travel to Ninh Binh, the 'Halong Bay on land,' for a scenic boat ride through caves and limestone peaks. ",
+          "activities": [
+            "Bet Dwarka by boat ",
+            "Nageshwar Jyotirlinga – One of the 12 Jyotirlingas ",
+            "Rukmini Temple & Gomti Ghat",
+            "Evening: Shopping in Dwarka local bazaar"
+          ],
+          "accommodation": "Dwarka ",
+          "meals": [
+            "Breakfast "
+          ]
+        },
+        {
+          "day": 4,
+          "title": "Dwarka → Porbandar → Somnath (250 km / 5 hrs)",
+          "description": "Fly to Ho Chi Minh City and explore its French colonial landmarks like the Notre Dame Cathedral and the bustling Ben Thanh Market. ",
+          "activities": [
+            "Kirti Mandir (Mahatma Gandhi’s birthplace). ",
+            "Sudama Temple ",
+            "Somnath Temple – Darshan & evening Aarti ",
+            "Light & Sound Show "
+          ],
+          "accommodation": "Somnath ",
+          "meals": [
+            "Breakfast "
+          ]
+        },
+        {
+          "day": 5,
+          "title": "Somnath → Ahmedabad Departure (410 km / 7 hrs)",
+          "description": "Enjoy a final breakfast in Somnath before your transfer to the airport for departure. ",
+          "activities": [
+            "Drive back to Ahmedabad for departure ",
+            "Tour Ends with Divine Blessings & Memories! "
+          ],
+          "accommodation": "None ",
+          "meals": [
+            "Breakfast "
+          ]
+        }
+      ]
+    },
+    {
+      "id": "package_32",
+      "packageName": "Enchanting Kerala Tour",
+      "duration": "6 Nights / 7 Days",
+      "type": "Domestic",
+      "imageUrl": "https://images.unsplash.com/photo-1593693397690-362cb9666fc2?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "description": "A perfect mix of history, nature, and adventure, this tour explores Hanoi's cultural landmarks, the UNESCO World Heritage site of Halong Bay on a luxury cruise, and the historic Cu Chi Tunnels. ",
+      "highlights": [
+        "Cochin – Gateway to Kerala",
+        "Munnar – The Tea Valley Paradise",
+        "Thekkady – Spices & Wildlife",
+        "Alleppey – Venice of the East",
+        "Kovalam – Tropical Beach Escape",
+        "Trivandrum – Cultural Capital"
+      ],
+      "destination": "Kerala",
+      "category": "Cultural & Adventure",
+      "price": "Starting from ₹XX,XXX per person ",
+      "difficulty": "Easy",
+      "bestTime": "March to April, October to November",
+      "accommodation": "Hotels and 1 Night in Cochin ",
+      "meals": "Daily Breakfast ",
+      "transportation": "Private Transportation, Cruise ",
+      "activities": [
+        "City tours ",
+        "Overnight cruising ",
+        "Kayaking ",
+        "Cave exploration ",
+        "Historical tunnel tours "
+      ],
+      "inclusions": [
+        "Accommodation in 3-star / 4-star hotels & houseboat ",
+        "Daily breakfast (All meals on houseboat) ",
+        "Private AC vehicle for transfers & sightseeing ",
+        "Professional English/Hindi-speaking driver ",
+        "Toll, parking, driver charges & fuel costs "
+      ],
+      "exclusions": [
+        "Monument / Sanctuary entry fees ",
+        "Lunch & Dinner (except on houseboat) ",
+        "Personal expenses (shopping, tips, etc.) ",
+        "Optional activities (Jeep Safari, Kathakali Show, Elephant Ride, Ayurvedic Massage) "
+      ],
+      "terms": [
+        "50% advance payment required at the time of booking. ",
+        "The remaining 50% to be paid upon arrival before the start of the tour. ",
+        "Payments can be made via bank transfer, UPI, credit/debit card, or cash. ",
+        "Hotel rooms, flights, and transport will be confirmed only after the advance payment is received.",
+        "If selected hotels or flights are unavailable, similar category options will be provided.",
+        "Valid passport & visa (for international trips).",
+        "Travel insurance is recommended for global tours.",
+        "Local ID proof required for domestic travelers."
+      ],
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Arrival at Cochin – City Tour",
+          "description": "Meet at Cochin Airport / Railway Station & transfer to hotel. ",
+          "activities": [
+            "Fort Kochi ",
+            "Dutch Palace ",
+            "Jewish Synagogue ",
+            "St. Francis Church ",
+            "Marine Drive"
+          ],
+          "accommodation": "Cochin ",
+          "meals": [
+            "Breakfast"
+          ]
+        },
+        {
+          "day": 2,
+          "title": "Cochin → Munnar (130 km / 4 hrs)",
+          "description": "Drive to Munnar via lush valleys & waterfalls. ",
+          "activities": [
+            "Valara ",
+            "Cheeyappara Waterfalls "
+          ],
+          "accommodation": "Munnar ",
+          "meals": [
+            "Breakfast "
+          ]
+        },
+        {
+          "day": 3,
+          "title": "Munnar Sightseeing",
+          "description": "Drive to Munnar via Eravikulam National Park. ",
+          "activities": [
+            "Eravikulam National Park ",
+            "Mattupetty Dam ",
+            "Echo Point ",
+            "Kundala Lake ",
+            "Tea Museum "
+          ],
+          "accommodation": "Munnar ",
+          "meals": [
+            "Breakfast "
+          ]
+        },
+        {
+          "day": 4,
+          "title": "Munnar → Thekkady (90 km / 3 hrs)",
+          "description": "Breakfast & check-out. ",
+          "activities": [
+            "Periyar Lake boat ride ",
+            "spice plantation ",
+            "evening cultural show (optional) "
+          ],
+          "accommodation": "Thekkady ",
+          "meals": [
+            "Breakfast "
+          ]
+        },
+        {
+          "day": 5,
+          "title": "Thekkady → Alleppey (140 km / 4 hrs)",
+          "description": "Check into Houseboat – Cruise through backwaters, lagoons & paddy fields. ",
+          "activities": [
+            "Cruise through backwaters, lagoons & paddy fields "
+          ],
+          "accommodation": "Houseboat (Alleppey) ",
+          "meals": [
+            "All meals served onboard (Kerala cuisine) "
+          ]
+        },
+        {
+          "day": 6,
+          "title": "Alleppey → Kovalam (160 km / 5 hrs)",
+          "description": "Drive to Kovalam – a popular beach town. ",
+          "activities": [
+            "Lighthouse Beach ",
+            "Hawa Beach",
+            "Samudra Beach"
+          ],
+          "accommodation": "Kovalam ",
+          "meals": [
+            "Breakfast "
+          ]
+        },
+        {
+          "day": 7,
+          "title": "Kovalam → Trivandrum / Cochin Departure",
+          "description": "Visit Padmanabhaswamy Temple & Napier Museum (time permitting). ",
+          "activities": [
+            "Transfer to Trivandrum / Cochin Airport / Railway Station ",
+            "Tour Ends with Beautiful Memories of Kerala!"
+          ],
+          "accommodation": "None ",
+          "meals": [
+            "Breakfast "
+          ]
+        }
+      ]
+    },
+    {
+      "id": "package_33",
+      "packageName": "Kashmir Delight Tour",
+      "duration": "4 Nights / 5 Days",
+      "type": "Domestic",
+      "imageUrl": "https://images.unsplash.com/photo-1598091383021-15ddea10925d?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "description": "A perfect mix of history, nature, and adventure, this tour explores Hanoi's cultural landmarks, the UNESCO World Heritage site of Halong Bay on a luxury cruise, and the historic Cu Chi Tunnels. ",
+      "highlights": [
+        "Srinagar – Paradise on Earth",
+        "Srinagar – Paradise on Earth",
+        "Pahalgam – Valley of Shepherds"
+      ],
+      "destination": "Kashmir",
+      "category": "Cultural & Adventure",
+      "price": "Starting from ₹XX,XXX per person ",
+      "difficulty": "Easy",
+      "bestTime": "March to April, October to November",
+      "accommodation": "Hotels and 1 Night in Cochin ",
+      "meals": "Daily Breakfast ",
+      "transportation": "Private Transportation, Cruise ",
+      "activities": [
+        "City tours ",
+        "Overnight cruising ",
+        "Kayaking ",
+        "Cave exploration ",
+        "Historical tunnel tours "
+      ],
+      "inclusions": [
+        "Accommodation in deluxe hotels / houseboats. ",
+        "Daily breakfast & dinner. ",
+        "Shikara ride (1 hour) on Dal Lake. ",
+        "Private AC vehicle for all transfers & sightseeing. ",
+        "Professional driver allowances, toll, parking & fuel charges. "
+      ],
+      "exclusions": [
+        "Gondola Ride charges & pony rides. ",
+        "Lunch & personal expenses. ",
+        "Entry fees at monuments & gardens. ",
+        "Travel insurance / GST / Any activity not mentioned in inclusions. "
+      ],
+      "terms": [
+        "50% advance payment required at the time of booking. ",
+        "The remaining 50% to be paid upon arrival before the start of the tour. ",
+        "Payment methods: Bank transfer, UPI, credit/debit card, or cash (where applicable). ",
+        "Hotel rooms, flights, and transport will be confirmed only after the advance payment is received.",
+        "If selected hotels or flights are unavailable, similar category options will be provided.",
+        "Valid passport & visa (for international trips).",
+        "Travel insurance is recommended for global tours.",
+        "Local ID proof required for domestic travelers."
+      ],
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Arrival at Srinagar – Local Sightseeing",
+          "description": "Pickup from Srinagar Airport. Shikara ride on Dal Lake & visit Mughal Gardens. ",
+          "activities": [
+            "Shikara ride on Dal Lake ",
+            "visit Mughal Gardens"
+          ],
+          "accommodation": "Srinagar (Houseboat / Hotel) ",
+          "meals": [
+            "Breakfast"
+          ]
+        },
+        {
+          "day": 2,
+          "title": "Srinagar → Gulmarg (55 km / 2 hrs)",
+          "description": "Sightseeing: Gondola Ride, Strawberry Valley & Golf Course. ",
+          "activities": [
+            "Gondola Ride ",
+            "Strawberry Valley ",
+            "Golf Course "
+          ],
+          "accommodation": "Gulmarg ",
+          "meals": [
+            "Breakfast "
+          ]
+        },
+        {
+          "day": 3,
+          "title": "Gulmarg → Pahalgam (140 km / 4 hrs)",
+          "description": "Scenic drive via Pampore saffron fields & apple orchards. ",
+          "activities": [
+            "Betaab Valley ",
+            "Aru Valley ",
+            "Chandanwari "
+          ],
+          "accommodation": "Pahalgam ",
+          "meals": [
+            "Breakfast "
+          ]
+        },
+        {
+          "day": 4,
+          "title": "Pahalgam → Srinagar (90 km / 2.5 hrs)",
+          "description": "Breakfast & check-out. ",
+          "activities": [
+            "Shankaracharya Temple ",
+            "Hazratbal Shrine ",
+            "Shopping for handicrafts & dry fruits "
+          ],
+          "accommodation": "Srinagar ",
+          "meals": [
+            "Breakfast "
+          ]
+        },
+        {
+          "day": 5,
+          "title": "Departure from Srinagar",
+          "description": "Breakfast at hotel & check-out.",
+          "activities": [
+            "Drop at Srinagar Airport / Railway Station. ",
+            "Tour Ends with Unforgettable Memories of Kashmir!"
+          ],
+          "accommodation": "None ",
+          "meals": [
+            "Breakfast "
+          ]
+        }
+      ]
+    },
+    {
+      "id": "package_34",
+      "packageName": "Heavenly Kashmir Tour",
+      "duration": "6 Nights / 7 Days",
+      "type": "Domestic",
+      "imageUrl": "https://images.unsplash.com/photo-1715457573748-8e8a70b2c1be?q=80&w=871&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "description": "A perfect mix of history, nature, and adventure, this tour explores Hanoi's cultural landmarks, the UNESCO World Heritage site of Halong Bay on a luxury cruise, and the historic Cu Chi Tunnels. ",
+      "highlights": [
+        "Srinagar – Paradise on Earth",
+        "Gulmarg – Meadow of Flowers",
+        "Pahalgam – Valley of Shepherds",
+        "Sonmarg – Meadow of Gold"
+      ],
+      "destination": "Kashmir",
+      "category": "Cultural & Adventure",
+      "price": "Starting from ₹XX,XXX per person ",
+      "difficulty": "Easy",
+      "bestTime": "March to April, October to November",
+      "accommodation": "Hotels and 1 Night in Cochin ",
+      "meals": "Daily Breakfast ",
+      "transportation": "Private Transportation, Cruise ",
+      "activities": [
+        "City tours ",
+        "Overnight cruising ",
+        "Kayaking ",
+        "Cave exploration ",
+        "Historical tunnel tours "
+      ],
+      "inclusions": [
+        "Accommodation in deluxe hotels / houseboats. ",
+        "Daily breakfast & dinner. ",
+        "Shikara ride (1 hour) on Dal Lake. ",
+        "Private AC vehicle for all transfers & sightseeing. ",
+        "Driver allowances, toll, parking, fuel charges. "
+      ],
+      "exclusions": [
+        "Gondola Ride charges, pony rides & local union cab charges. ",
+        "Lunch & personal expenses. ",
+        "Entry fees at gardens, monuments & activities. ",
+        "GST / Travel Insurance / Anything not mentioned in inclusions. "
+      ],
+      "terms": [
+        "50% advance payment required at the time of booking. ",
+        "The remaining 50% to be paid upon arrival before the start of the tour. ",
+        "Payment methods: Bank transfer, UPI, credit/debit card, or cash (where applicable). ",
+        "Hotel rooms, flights, and transport will be confirmed only after the advance payment is received.",
+        "If selected hotels or flights are unavailable, similar category options will be provided.",
+        "Valid passport & visa (for international trips).",
+        "Travel insurance is recommended for global tours.",
+        "Local ID proof required for domestic travelers."
+      ],
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Arrival Srinagar – Local Sightseeing",
+          "description": "Pickup from Srinagar Airport. ",
+          "activities": [
+            "Shikara ride on Dal Lake ",
+            "visit Mughal Gardens & Shankaracharya Temple."
+          ],
+          "accommodation": "Srinagar (Houseboat / Hotel) ",
+          "meals": [
+            "None"
+          ]
+        },
+        {
+          "day": 2,
+          "title": "Srinagar → Gulmarg (55 km / 2 hrs)",
+          "description": "Sightseeing: Gondola Ride, Strawberry Valley & Golf Course. ",
+          "activities": [
+            "Gondola Ride (up to Phase 1/Phase 2)",
+            "Strawberry Valley ",
+            "Golf Course "
+          ],
+          "accommodation": "Gulmarg ",
+          "meals": [
+            "Breakfast "
+          ]
+        },
+        {
+          "day": 3,
+          "title": "Gulmarg → Pahalgam (140 km / 4 hrs)",
+          "description": "Scenic drive via saffron fields & apple orchards. ",
+          "activities": [
+            "Visit Avantipur ruins & Pampore. "
+          ],
+          "accommodation": "Pahalgam ",
+          "meals": [
+            "Breakfast "
+          ]
+        },
+        {
+          "day": 4,
+          "title": "Pahalgam Sightseeing",
+          "description": "Breakfast at hotel & Local sightseeing ",
+          "activities": [
+            "Aru Valley ",
+            "Betaab Valley ",
+            "Chandanwari (local union cab required) "
+          ],
+          "accommodation": "Pahalgam ",
+          "meals": [
+            "Breakfast "
+          ]
+        },
+        {
+          "day": 5,
+          "title": "Pahalgam → Srinagar (90 km / 2.5 hrs",
+          "description": "Return to Srinagar.",
+          "activities": [
+            "Evening free for shopping (dry fruits, pashmina, handicrafts) "
+          ],
+          "accommodation": "Srinagar ",
+          "meals": [
+            "Breakfast "
+          ]
+        },
+        {
+          "day": 6,
+          "title": "Srinagar → Sonmarg Excursion (80 km / 3 hrs one way)",
+          "description": "Day trip to Sonmarg: Thajiwas Glacier, pony rides, river views",
+          "activities": [
+            "Thajiwas Glacier ",
+            "pony rides",
+            "river views"
+          ],
+          "accommodation": "Srinagar ",
+          "meals": [
+            "Breakfast "
+          ]
+        },
+        {
+          "day": 7,
+          "title": "Departure from Srinagar",
+          "description": "Drop at Srinagar Airport with sweet memories.",
+          "activities": [
+            "Breakfast at hotel. "
+          ],
+          "accommodation": "None ",
+          "meals": [
+            "Breakfast "
+          ]
+        }
+      ]
     }
   ];
 
