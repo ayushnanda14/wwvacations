@@ -3394,7 +3394,7 @@ export const packagesData: Package[] =
       "packageName": "Nepal Tour",
       "duration": "7 Nights / 8 Days",
       "type": "International",
-      "imageUrl": "https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2080&q=80",
+      "imageUrl": "https://images.unsplash.com/photo-1511215579272-6192432f83bc?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "description": "A comprehensive journey through Nepal covering the cultural sites of Kathmandu, the adventure-filled city of Pokhara, and a thrilling jungle safari in Chitwan National Park. ",
       "highlights": [
         "Kathmandu, Pokhara & Chitwan in one trip ",
