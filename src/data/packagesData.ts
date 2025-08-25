@@ -3259,7 +3259,7 @@ export const packagesData: Package[] =
       "packageName": "Nepal Tour",
       "duration": "5 Nights / 6 Days",
       "type": "International",
-      "imageUrl": "https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      "imageUrl": "https://images.unsplash.com/photo-1611516491426-03025e6043c8?q=80&w=1033&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "description": "An affordable and customizable package that explores Nepal's cultural heart in Kathmandu, the serene lakeside city of Pokhara, and offers breathtaking sunrise views over the Himalayas from Sarangkot. ",
       "highlights": [
         "Himalayan sunrise view from Sarangkot ",
