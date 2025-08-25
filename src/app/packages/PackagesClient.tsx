@@ -195,12 +195,16 @@ export default function PackagesClient() {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="relative py-20 pt-48 bg-gradient-to-br from-primary via-primary/90 to-primary/80" style={{
-        backgroundImage:
-          "url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "center",
-        backgroundSize: "cover"}>
+      <section
+  className="relative py-20 pt-48 bg-gradient-to-br from-primary via-primary/90 to-primary/80"
+  style={{
+    backgroundImage:
+      "url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center",
+    backgroundSize: "cover",
+  }}
+>
         <div className="absolute inset-0 bg-black/20" />
         <div className="relative max-w-7xl mx-auto px-6 sm:px-8 md:px-12 text-center text-white">
           <motion.h1 
