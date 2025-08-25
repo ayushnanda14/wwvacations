@@ -412,12 +412,12 @@ export default function Navbar() {
           </div>
 
           <Link
-            href="#contact"
+            href="/#contact"
             className={`rounded-full border px-4 py-2 text-sm font-medium transition-all ${
               (isScrolled && !isMenuOpen) || isInDestinationsSection || isAboutPage || isSearchFocused
                 ? 'border-primary text-primary hover:bg-primary hover:text-white' 
                 : 'border-white/40 text-white hover:bg-white hover:text-gray-900'
-            } hover:backdrop-blur-sm transition-all cursor-pointer`}
+            } hover:backdrop-blur-sm transition-all cursor-pointer`} scroll={true}
           >
             Contact Us
           </Link>
@@ -484,9 +484,9 @@ export default function Navbar() {
                   />
                 </div>
                 <Link
-                  href="#contact"
+                  href="/#contact"
                   onClick={toggleMenu}
-                  className="rounded-full bg-black text-white hover:bg-black/40 hover:backdrop-blur-sm text-center py-2 text-sm font-medium transition-all"
+                  className="rounded-full bg-black text-white hover:bg-black/40 hover:backdrop-blur-sm text-center py-2 text-sm font-medium transition-all" scroll={true}
                 >
                   Contact Us
                 </Link>
