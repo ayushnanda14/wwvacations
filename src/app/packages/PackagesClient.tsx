@@ -80,7 +80,10 @@ export default function PackagesClient() {
         'Nepal': 'Nepal',
         'Sri Lanka': 'Sri Lanka',
         'Thailand': 'Thailand',
-        'Vietnam': 'Vietnam'
+        'Vietnam': 'Vietnam',
+        'Kerala': 'Kerala',
+        'Kashmir':'Kashmir',
+        'Gujarat':'Gujarat'
       };
       
       // Try exact match first, then try partial match
