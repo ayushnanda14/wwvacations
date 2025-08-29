@@ -43,7 +43,7 @@ export default function ContactPopup({ isOpen, onClose, packageName }: ContactPo
     {
       icon: FiPhone,
       title: '24/7 Helpline',
-      details: '+91-7855966158',
+      details: '+91-9348997368',
     },
     {
       icon: FiPhone,
