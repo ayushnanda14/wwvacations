@@ -6,6 +6,7 @@ import { packagesData, getUniqueDestinations, getUniqueCategories, getUniqueType
 import { useSearchParams, useRouter, usePathname } from 'next/navigation';
 import ContactButton from '@/components/ContactButton';
 import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 import Image from 'next/image';
 
 type SortOption = 'name' | 'price' | 'duration' | 'rating';
@@ -483,6 +484,7 @@ export default function PackagesClient() {
           </AnimatePresence>
         </div>
       </section>
+            <Footer />
     </div>
   );
 } 
