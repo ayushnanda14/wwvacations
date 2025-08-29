@@ -2,6 +2,7 @@
 
 import { FiMapPin, FiClock, FiStar, FiUsers, FiCheck, FiX, FiCalendar, FiShield, FiTruck } from 'react-icons/fi';
 import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 import ContactPopup from '@/components/ContactPopup';
 import Image from 'next/image';
 import { useState } from 'react';
@@ -309,6 +310,8 @@ export default function PackageDetailClient({ pkg }: PackageDetailClientProps) {
           </div>
         </div>
       </section>
+
+      <Footer/>
 
       {/* Contact Popup */}
       {isContactOpen && (
