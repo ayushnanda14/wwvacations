@@ -5,7 +5,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
 const containerVariants: Variants = {
-  hidden: { opacity: 0 },
+  hidden: { opacity: 1 },
   visible: {
     opacity: 1,
     transition: {
@@ -15,7 +15,7 @@ const containerVariants: Variants = {
 };
 
 const itemVariants: Variants = {
-  hidden: { y: 20, opacity: 0 },
+  hidden: { y: 20, opacity: 1 },
   visible: {
     y: 0,
     opacity: 1,
