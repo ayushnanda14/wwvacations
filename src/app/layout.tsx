@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import './gtm.js';
 
 export const metadata: Metadata = {
   title: "WW Vacations - Luxury Travel Packages & Destinations",
