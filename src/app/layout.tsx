@@ -109,6 +109,17 @@ export default function RootLayout({
             gtag('config', 'AW-17514037101');
           `}
         </Script>
+
+        {/* Conversion Event – Fires on ALL pages */}
+        <Script id="google-ads-conversion" strategy="afterInteractive">
+          {`
+            if (window.gtag) {
+              gtag('event', 'conversion', {
+                send_to: 'AW-17514037101/EksMCJ2ykKUbEO3-q59B'
+              });
+            }
+          `}
+        </Script>
         
         {/* Google Font: Poppins */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
