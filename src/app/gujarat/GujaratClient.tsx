@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
-import Navbar from '@/components/Navbar';
+import Navbar from '@/components/LandingPageNavbar';
 import Footer from '@/components/Footer';
 
 export default function GujaratClient() {
