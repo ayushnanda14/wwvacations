@@ -66,7 +66,7 @@ const whyChooseUs = [
   'We deliver with heart',
 ];
 
-export default function AboutClient() {
+export default function GGujaratClient() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
