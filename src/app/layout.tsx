@@ -93,6 +93,21 @@ export default function RootLayout({
             `,
           }}
         />
+
+        {/* Google Ads Global Tag */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-17514037101"
+          strategy="afterInteractive"
+        />
+
+        <Script id="google-ads-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-17514037101');
+          `}
+        </Script>
         
         {/* Google Font: Poppins */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
