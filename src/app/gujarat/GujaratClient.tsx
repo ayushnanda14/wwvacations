@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
-import LandingPageNavbar from '@/components/LandingPageNavbar';
+// import LandingPageNavbar from '@/components/LandingPageNavbar';
 import Footer from '@/components/Footer';
 
 export default function GujaratClient() {
@@ -16,7 +16,7 @@ export default function GujaratClient() {
 
   return (
     <>
-      <LandingPageNavbar />
+      {/* <LandingPageNavbar /> */}
       <h1>Gujarat Landing Page</h1>
       <Footer />
     </>
