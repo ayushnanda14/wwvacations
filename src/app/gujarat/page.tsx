@@ -1,4 +1,3 @@
-'use client';
 import GujaratClient from './GujaratClient';
 
 export default function GujaratPage() {
