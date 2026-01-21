@@ -32,19 +32,19 @@ const LandingPageNavbar: React.FC = () => {
       </Link>
 
         {/* Contact Info */}
-        <div className="flex items-center gap-6 text-black font-medium">
+        <div className="flex items-center gap-6 text-black font-medium hidden lg:block">
           <div className="flex items-center gap-2">
             <span className="w-9 h-9 rounded-full bg-yellow-400 flex items-center justify-center">
               <Phone size={18} />
             </span>
-            <span>+91-95553-56669</span>
+            <span>+91-93375 97368</span>
           </div>
 
           <div className="flex items-center gap-2">
             <span className="w-9 h-9 rounded-full bg-yellow-400 flex items-center justify-center">
               <Mail size={18} />
             </span>
-            <span>info@journeytogujarat.com</span>
+            <span>info@wwvacations.com</span>
           </div>
         </div>
 
