@@ -42,7 +42,7 @@ const GujaratHeroSec: React.FC = () => {
           </div>
 
           {/* Right Form – Desktop Only */}
-          <div className="hidden lg:flex justify-end items-center">
+          <div className="lg:flex justify-end items-center">
             <TourEnquiryForm />
           </div>
 
