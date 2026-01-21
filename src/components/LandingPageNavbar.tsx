@@ -12,16 +12,24 @@ const LandingPageNavbar: React.FC = () => {
       <div className="container mx-auto px-6 py-3 flex items-center justify-between">
 
         {/* Logo */}
-        <Link href="/" className="flex items-center">
+        <Link
+          href="/"
+          className="text-2xl font-extrabold tracking-tight flex items-center gap-2"
+        >
+        <div className="h-full w-full rounded-full ring-1 grid place-items-center transition-colors bg-white/90 ring-white/20">
           <Image
             src={logo}
-            alt="Journey to Gujarat"
-            width={180}
-            height={70}
+            alt="WW Vacation Image"
+            width={100}
+            height={100}
+            className="w-12 object-contain"
             priority
-            className="object-contain"
           />
-        </Link>
+        </div>
+        <span className="text-xl transition-colors text-white">
+          wwvacations
+        </span>
+      </Link>
 
         {/* Contact Info */}
         <div className="flex items-center gap-6 text-black font-medium">
