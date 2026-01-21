@@ -32,7 +32,7 @@ const LandingPageNavbar: React.FC = () => {
       </Link>
 
         {/* Contact Info */}
-        <div className="flex items-center gap-6 text-black font-medium hidden lg:block">
+        <div className="flex items-center justify-between gap-6 text-black font-medium hidden lg:block">
           <div className="flex items-center gap-2">
             <span className="w-9 h-9 rounded-full bg-yellow-400 flex items-center justify-center">
               <Phone size={18} />
