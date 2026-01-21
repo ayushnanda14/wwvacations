@@ -9,7 +9,9 @@ export default function GujaratClient() {
   return (
     <>
       <LandingPageNavbar />
-      <GujaratHeroSec />
+      <main className="relative bg-white">
+        <GujaratHeroSec />
+      </main>
       <Footer />
     </>
   );
