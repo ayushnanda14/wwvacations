@@ -8,7 +8,7 @@ import logo from '@/logo.png';
 
 const LandingPageNavbar: React.FC = () => {
   return (
-    <header className="hidden lg:block w-full bg-white border-b">
+    <nav className="fixed inset-x-0 top-0 z-40 px-6 py-4 flex items-center justify-between transition-all duration-300 bg-white/0 backdrop-blur-[2px]">
       <div className="container mx-auto px-6 py-3 flex items-center justify-between">
 
         {/* Logo */}
@@ -49,7 +49,7 @@ const LandingPageNavbar: React.FC = () => {
         </div>
 
       </div>
-    </header>
+    </nav>
   );
 };
 
