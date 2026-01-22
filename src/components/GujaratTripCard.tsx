@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import React from 'react';
 import TripImg from '@/best-shimla-manali.jpg';
+import OffImg from '@/25off.png';
 
 const BestDealSection: React.FC = () => {
   return (
@@ -57,7 +58,7 @@ const BestDealSection: React.FC = () => {
               {/* Offer Badge */}
               <div className="absolute -left-6 bottom-6">
                 <Image
-                  src="/images/25off.png"
+                  src={OffImg}
                   alt="25% Off"
                   width={120}
                   height={120}
