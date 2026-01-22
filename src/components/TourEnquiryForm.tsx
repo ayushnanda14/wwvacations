@@ -4,7 +4,7 @@ import React from 'react';
 
 const TourEnquiryForm: React.FC = () => {
   return (
-    <div className="bg-white w-full max-w-md shadow-lg overflow-hidden">
+    <div className="bg-white w-full max-w-md shadow-lg overflow-hidden" id="tour-enquiry-form">
       
       {/* Form Header */}
       <div className="bg-[#001e68] text-white text-center py-4 font-bold relative">
