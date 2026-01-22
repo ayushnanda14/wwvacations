@@ -7,7 +7,7 @@ import OffImg from '@/25off.png';
 
 const BestDealSection: React.FC = () => {
   return (
-    <section id="best-deal" className="py-10">
+    <section id="best-deal" className="hidden md:block py-10">
       <div className="max-w-7xl mx-auto px-4">
         <div className="relative bg-white border rounded-lg overflow-hidden">
 
