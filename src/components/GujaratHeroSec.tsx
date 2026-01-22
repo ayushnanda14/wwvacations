@@ -17,7 +17,7 @@ const GujaratHeroSec: React.FC = () => {
       </div>
 
       {/* Content Wrapper */}
-      <div className="relative z-10 h-full container mx-auto px-6">
+      <div className="relative z-10 h-full container mx-auto mt-6 sm:mt-0 px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 h-full items-center gap-10">
 
           {/* LEFT CONTENT */}
@@ -42,7 +42,7 @@ const GujaratHeroSec: React.FC = () => {
           </div>
 
           {/* RIGHT FORM */}
-          <div className="hidden lg:flex justify-end">
+          <div className="lg:flex justify-end">
             <TourEnquiryForm />
           </div>
 
