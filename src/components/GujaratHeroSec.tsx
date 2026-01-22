@@ -2,6 +2,7 @@
 
 import React from 'react';
 import TourEnquiryForm from './TourEnquiryForm';
+import MobileBottomCTA from './MobileBottomCTA';
 
 const GujaratHeroSec: React.FC = () => {
   return (
@@ -47,6 +48,8 @@ const GujaratHeroSec: React.FC = () => {
 
         </div>
       </div>
+      {/* MobileBottomCTA */}
+      <MobileBottomCTA />
     </section>
   );
 };
