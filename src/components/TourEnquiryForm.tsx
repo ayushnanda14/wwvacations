@@ -4,7 +4,7 @@ import React from 'react';
 
 const TourEnquiryForm: React.FC = () => {
   return (
-    <div className="bg-white w-full max-w-md rounded shadow-lg overflow-hidden">
+    <div className="bg-white w-full max-w-md shadow-lg overflow-hidden">
       
       {/* Form Header */}
       <div className="bg-[#001e68] text-white text-center py-4 font-bold relative">
@@ -45,7 +45,7 @@ const TourEnquiryForm: React.FC = () => {
 
         <button
           type="submit"
-          className="w-full bg-[#001e68] text-white py-3 rounded font-semibold hover:bg-[#a50000] transition"
+          className="w-full bg-[#001e68] text-white py-3 font-semibold hover:bg-[#a50000] transition"
         >
           SEND ENQUIRY
         </button>
