@@ -117,21 +117,21 @@ const GujaratTourPackages: React.FC = () => {
                   <Link
                     href="https://wa.me/9337597368"
                     target="_blank"
-                    className="bg-green-500 text-white text-md py-3 rounded text-center"
+                    className="bg-green-500 text-white font-semibold text-sm py-3 rounded text-center"
                   >
                     WhatsApp
                   </Link>
 
                   <Link
                     href="tel:9337597368"
-                    className="bg-[#001e68] text-white text-md py-3 rounded text-center"
+                    className="bg-[#001e68] text-white font-semibold text-sm py-3 rounded text-center"
                   >
                     Call Now
                   </Link>
 
                   <Link
                     href="#tour-enquiry-form"
-                    className="bg-[#a50000] text-white text-md py-3 rounded text-center"
+                    className="bg-[#a50000] text-white font-semibold text-sm py-3 rounded text-center"
                   >
                     Enquire Now
                   </Link>
