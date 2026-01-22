@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import React from 'react';
-import TripImg from '@/logo.png';
+import TripImg from '@/best-shimla-manali.jpg';
 
 const BestDealSection: React.FC = () => {
   return (
