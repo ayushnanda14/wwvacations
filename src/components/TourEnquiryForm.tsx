@@ -7,9 +7,9 @@ const TourEnquiryForm: React.FC = () => {
     <div className="bg-white w-full max-w-md rounded shadow-lg overflow-hidden">
       
       {/* Form Header */}
-      <div className="bg-[#7a4a1d] text-white text-center py-4 font-bold relative">
+      <div className="bg-[#001e68] text-white text-center py-4 font-bold relative">
         PLAN YOUR TRIP WITH US !
-        <span className="absolute left-1/2 -bottom-3 w-0 h-0 border-l-8 border-r-8 border-t-8 border-transparent border-t-[#7a4a1d] -translate-x-1/2" />
+        <span className="absolute left-1/2 -bottom-3 w-0 h-0 border-l-8 border-r-8 border-t-8 border-transparent border-t-[#001e68] -translate-x-1/2" />
       </div>
 
       {/* Form Body */}
@@ -45,7 +45,7 @@ const TourEnquiryForm: React.FC = () => {
 
         <button
           type="submit"
-          className="w-full bg-[#7a4a1d] text-white py-3 rounded font-semibold hover:bg-[#5f3714] transition"
+          className="w-full bg-[#001e68] text-white py-3 rounded font-semibold hover:bg-[#a50000] transition"
         >
           SEND ENQUIRY
         </button>
