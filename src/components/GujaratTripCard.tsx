@@ -27,7 +27,7 @@ const BestDealSection: React.FC = () => {
           {/* Package Details */}
           <div className="absolute inset-0 flex items-center">
             <div className="relative bg-white/90 backdrop-blur-sm 
-              p-6 md:p-10 max-w-md ml-0 md:ml-12">
+              p-6 md:p-10 max-w-md">
 
               <h2 className="text-3xl font-extrabold text-orange-600">
                 Gujarat Trip
