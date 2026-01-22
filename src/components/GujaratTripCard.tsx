@@ -19,17 +19,7 @@ const BestDealSection: React.FC = () => {
               alt="Gujarat Trip"
               width={1200}
               height={500}
-              className="hidden md:block w-full object-cover"
-              priority
-            />
-
-            {/* Mobile Image */}
-            <Image
-              src={TripImg}
-              alt="Gujarat Trip Mobile"
-              width={600}
-              height={600}
-              className="block md:hidden w-full object-cover"
+              className="w-full object-cover"
               priority
             />
           </div>
@@ -56,7 +46,8 @@ const BestDealSection: React.FC = () => {
               </div>
             </div>
           </div>
-          <div className="relative">
+        </div>
+        <div className="relative">
             {/* Offer Badge */}
               <div className="absolute -left-6 bottom-0">
                 <Image
@@ -67,7 +58,6 @@ const BestDealSection: React.FC = () => {
                 />
               </div>
           </div>
-        </div>
       </div>
     </section>
   );
