@@ -54,19 +54,19 @@ const BestDealSection: React.FC = () => {
               <div className="text-4xl font-extrabold mt-1">
                 ₹9,999<span className="text-xl"> /-</span>
               </div>
-
-              {/* Offer Badge */}
-              <div className="absolute -left-6 bottom-6">
+            </div>
+          </div>
+          <div className="relative">
+            {/* Offer Badge */}
+              <div className="absolute -left-6 bottom-0">
                 <Image
                   src={OffImg}
                   alt="25% Off"
-                  width={120}
+                  width={200}
                   height={120}
                 />
               </div>
-            </div>
           </div>
-
         </div>
       </div>
     </section>
