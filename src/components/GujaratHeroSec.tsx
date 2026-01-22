@@ -20,7 +20,7 @@ const GujaratHeroSec: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 h-full items-center gap-10">
 
           {/* LEFT CONTENT */}
-          <div className="text-white space-y-4">
+          <div className="text-white">
 
             <h1 className="text-3xl sm:text-4xl lg:text-5xl 
               font-extrabold leading-tight
