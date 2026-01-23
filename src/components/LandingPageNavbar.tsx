@@ -20,9 +20,8 @@ const LandingPageNavbar: React.FC = () => {
           <Image
             src={logo}
             alt="WW Vacation Image"
-            width={100}
-            height={100}
-            className="w-12 object-contain"
+            width={70}
+            height={70}
             priority
           />
         </div>
