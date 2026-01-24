@@ -1,7 +1,7 @@
 'use client';
 
 import LandingPageNavbar from '@/components/LandingPageNavbar';
-import Footer from '@/components/Footer';
+import LandingPageFooter from '@/components/LandingPageFooter';
 import GujaratHeroSec from '@/components/GujaratHeroSec';
 import GujaratTripCard from '@/components/GujaratTripCard';
 import GujaratTourPackages from '@/components/GujaratTourPackages';
@@ -16,7 +16,7 @@ export default function GujaratClient() {
         <GujaratTripCard />
         <GujaratTourPackages />
       </main>
-      <Footer />
+      <LandingPageFooter />
     </>
   );
 }
