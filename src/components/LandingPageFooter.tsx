@@ -27,7 +27,7 @@ const LandingPageFooter: React.FC = () => {
           <h4 className="text-lg font-semibold mb-3">Contact Us</h4>
 
           <div className="flex items-center gap-3 text-gray-300">
-            <span className="w-9 h-9 rounded-full bg-[#001e68] text-white flex items-center justify-center">
+            <span className="text-white flex items-center justify-center">
               <Mail size={18} />
             </span>
             <Link href="mailto:info@wwvacations.com">
@@ -36,7 +36,7 @@ const LandingPageFooter: React.FC = () => {
           </div>
 
           <div className="flex items-center gap-3 text-gray-300">
-            <span className="w-9 h-9 rounded-full bg-[#001e68] text-white flex items-center justify-center">
+            <span className="text-white flex items-center justify-center">
               <Phone size={18} />
             </span>
             <Link href="tel:+919337597368">
@@ -45,7 +45,7 @@ const LandingPageFooter: React.FC = () => {
           </div>
 
           <div className="flex items-start gap-3 text-gray-300">
-            <span className="w-9 h-9 rounded-full bg-[#001e68] text-white flex items-center justify-center mt-1">
+            <span className="text-white flex items-center justify-center mt-1">
               <MapPin size={18} />
             </span>
             <span>
