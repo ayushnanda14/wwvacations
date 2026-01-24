@@ -13,18 +13,9 @@ const LandingPageNavbar: React.FC = () => {
         {/* Logo */}
         <div className="text-2xl font-extrabold tracking-tight flex items-center gap-2">
           <div className="h-full w-full rounded-full ring-1 grid place-items-center transition-colors bg-white/90 ring-black/10">
-            <Image
-              src={logo}
-              alt="WW Vacation Image"
-              class="w-12 object-contain"
-              width={100}
-              height={100}
-              priority
-            />
+            <Image width={100} height={100} alt='WW Vacation Image' src={logo} className="w-12 object-contain"/>
           </div>
-          <span className="text-xl transition-colors text-gray">
-            wwvacations
-          </span>
+          <span className="text-xl transition-colors text-gray">wwvacations</span>
         </div>
 
         {/* Contact Info */}
