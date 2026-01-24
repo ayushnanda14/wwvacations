@@ -1,7 +1,6 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
 import React from 'react';
 import { Phone, Mail } from 'lucide-react';
 import logo from '@/logo.png';
@@ -12,23 +11,20 @@ const LandingPageNavbar: React.FC = () => {
       <div className="container mx-auto flex items-center justify-between">
 
         {/* Logo */}
-        <Link
-          href="/"
-          className="text-2xl font-extrabold tracking-tight flex items-center gap-2"
-        >
-        <div className="h-full w-full rounded-full ring-1 grid place-items-center transition-colors bg-white/90 ring-white/20">
-          <Image
-            src={logo}
-            alt="WW Vacation Image"
-            width={70}
-            height={70}
-            priority
-          />
+        <div className="text-2xl font-extrabold tracking-tight flex items-center gap-2">
+          <div className="h-full w-full rounded-full ring-1 grid place-items-center transition-colors bg-white/90 ring-white/20">
+            <Image
+              src={logo}
+              alt="WW Vacation Image"
+              width={70}
+              height={70}
+              priority
+            />
+          </div>
+          <span className="text-xl transition-colors text-gray">
+            wwvacations
+          </span>
         </div>
-        <span className="text-xl transition-colors text-gray">
-          wwvacations
-        </span>
-      </Link>
 
         {/* Contact Info */}
         <div className="flex items-center justify-between gap-6 text-black font-medium hidden lg:flex">
