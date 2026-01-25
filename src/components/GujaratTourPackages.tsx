@@ -89,7 +89,7 @@ const GujaratTourPackages: React.FC = () => {
 
                 {/* Price */}
                 <div className="bg-yellow-300 text-black font-bold px-3 py-2 mt-4">
-                  Starting From: {pkg.price} <span className="text-sm font-medium">Per Person</span>
+                  Starting From: {pkg.price} <span className="text-sm font-medium"></span>
                 </div>
 
                 {/* Icons */}
