@@ -33,14 +33,26 @@ const TourEnquiryForm: React.FC = () => {
         />
 
         <input
-          type="date"
+          type="text"
+          placeholder="City"
           className="w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-600"
         />
 
-        <textarea
-          rows={3}
-          placeholder="Your Tour Requirements"
-          className="w-full border border-gray-300 px-4 py-2 rounded resize-none focus:outline-none focus:ring-2 focus:ring-blue-600"
+        <input
+          type="text"
+          placeholder="Travel Destination"
+          className="w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-600"
+        />
+
+        <input
+          type="number" min="1" max="5" placeholder="No. of Person"
+          className="w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-600"
+        />
+
+        <input
+          type="date"
+          placeholder="Date"
+          className="w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-600"
         />
 
         <button
