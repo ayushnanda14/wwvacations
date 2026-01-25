@@ -6,12 +6,12 @@ import React from 'react';
 
 const packages = [
   {
-    title: 'Gujarat Trip (Temple Special)',
+    title: 'Dwarka – Somnath – Ahmedabad Divine Journey',
     image: '/images/package-1.jpg',
     badge: 'Special Offer',
     duration: '04 Nights / 05 Days',
-    destination: 'Dwarka - Porbandar - Somnath - Ahmedabad',
-    price: '₹ 9,999/-',
+    destination: 'Ahmedabad - Dwarka - Somnath - Ahmedabad',
+    price: '₹ 9,999/- Per Pax',
   },
   {
     title: 'Gujarat Package Tour With Diu',
