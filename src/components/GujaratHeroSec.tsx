@@ -6,7 +6,7 @@ import MobileBottomCTA from './MobileBottomCTA';
 
 const GujaratHeroSec: React.FC = () => {
   return (
-    <section className="relative w-full overflow-hidden py-8 min-h-[600px] md:h-[600px] lg:h-[600px]">
+    <section className="relative w-full overflow-hidden py-4 min-h-[600px] md:h-[600px] lg:h-[600px]">
 
       {/* Background Image */}
       <div
