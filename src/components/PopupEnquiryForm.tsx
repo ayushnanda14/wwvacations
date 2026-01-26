@@ -2,17 +2,73 @@
 
 import React, { useEffect, useState } from 'react';
 
+type Status = 'idle' | 'loading' | 'success' | 'error';
+
 const PopupEnquiryForm: React.FC = () => {
   const [open, setOpen] = useState(false);
+  const [status, setStatus] = useState<Status>('idle');
 
-  // Open popup when page loads
+  // Show popup once per user
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setOpen(true);
-    }, 800); // delay for better UX
+    const alreadyShown = localStorage.getItem('popup_enquiry_shown');
 
-    return () => clearTimeout(timer);
+    if (!alreadyShown) {
+      const timer = setTimeout(() => {
+        setOpen(true);
+        localStorage.setItem('popup_enquiry_shown', 'true');
+      }, 800);
+
+      return () => clearTimeout(timer);
+    }
   }, []);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setStatus('loading');
+
+    const form = e.currentTarget;
+
+    const payload = {
+      name: (form.elements.namedItem('name') as HTMLInputElement)?.value || '',
+      phone: (form.elements.namedItem('phone') as HTMLInputElement)?.value || '',
+      city: (form.elements.namedItem('city') as HTMLInputElement)?.value || '',
+      travelDate:
+        (form.elements.namedItem('travelDate') as HTMLInputElement)?.value || '',
+      persons: Number(
+        (form.elements.namedItem('persons') as HTMLInputElement)?.value || 0
+      ),
+    };
+
+    // Validation
+    if (
+      !payload.name ||
+      !payload.phone ||
+      !payload.city ||
+      !payload.travelDate ||
+      payload.persons <= 0
+    ) {
+      setStatus('error');
+      return;
+    }
+
+    try {
+      const res = await fetch('/api/send-enquiry', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) throw new Error('Failed');
+
+      setStatus('success');
+      form.reset();
+
+      // Auto close after success
+      setTimeout(() => setOpen(false), 1500);
+    } catch {
+      setStatus('error');
+    }
+  };
 
   if (!open) return null;
 
@@ -21,10 +77,11 @@ const PopupEnquiryForm: React.FC = () => {
       {/* Modal */}
       <div className="relative bg-white w-full max-w-md rounded-xl shadow-xl p-6">
 
-        {/* Close Button */}
+        {/* Close */}
         <button
           onClick={() => setOpen(false)}
           className="absolute top-3 right-3 text-gray-500 hover:text-black text-xl font-bold"
+          aria-label="Close popup"
         >
           ×
         </button>
@@ -38,43 +95,65 @@ const PopupEnquiryForm: React.FC = () => {
         </p>
 
         {/* Form */}
-        <form className="mt-6 space-y-4">
+        <form className="mt-6 space-y-4" onSubmit={handleSubmit}>
+          <input
+            name="name"
+            required
+            placeholder="Name"
+            className="w-full border px-4 py-2 rounded focus:ring-2 focus:ring-blue-600"
+          />
 
           <input
-          type="text"
-          placeholder="Name"
-          className="w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-600"
-        />
+            name="phone"
+            type="tel"
+            required
+            placeholder="Mobile No."
+            className="w-full border px-4 py-2 rounded focus:ring-2 focus:ring-blue-600"
+          />
 
-        <input
-          type="tel"
-          placeholder="Mobile No."
-          className="w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-600"
-        />
+          <input
+            name="city"
+            required
+            placeholder="City"
+            className="w-full border px-4 py-2 rounded focus:ring-2 focus:ring-blue-600"
+          />
 
-        <input
-          type="text"
-          placeholder="City"
-          className="w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-600"
-        />
+          <input
+            name="travelDate"
+            type="date"
+            required
+            className="w-full border px-4 py-2 rounded focus:ring-2 focus:ring-blue-600"
+          />
 
-        <input
-          type="date"
-          placeholder="When are you planning to visit Gujarat?"
-          className="w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-600"
-        />
+          <input
+            name="persons"
+            type="number"
+            min={1}
+            max={20}
+            required
+            placeholder="No. of Person"
+            className="w-full border px-4 py-2 rounded focus:ring-2 focus:ring-blue-600"
+          />
 
-        <input
-          type="number" min="1" max="5" placeholder="No. of Person"
-          className="w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-600"
-        />
+          <button
+            type="submit"
+            disabled={status === 'loading'}
+            className="w-full bg-[#001e68] text-white py-3 font-semibold hover:bg-[#a50000] transition disabled:opacity-60"
+          >
+            {status === 'loading' ? 'SENDING...' : 'SEND ENQUIRY'}
+          </button>
 
-        <button
-          type="submit"
-          className="w-full bg-[#001e68] text-white py-3 font-semibold hover:bg-[#a50000] transition"
-        >
-          SEND ENQUIRY
-        </button>
+          {status === 'success' && (
+            <p className="text-green-600 text-sm text-center">
+              Enquiry sent successfully!
+            </p>
+          )}
+
+          {status === 'error' && (
+            <p className="text-red-600 text-sm text-center">
+              Please fill all details correctly.
+            </p>
+          )}
         </form>
       </div>
     </div>
