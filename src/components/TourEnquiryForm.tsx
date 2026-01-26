@@ -14,12 +14,25 @@ const TourEnquiryForm: React.FC = () => {
     const formData = new FormData(e.currentTarget);
 
     const payload = {
-      name: formData.get('name'),
-      phone: formData.get('phone'),
-      city: formData.get('city'),
-      travelDate: formData.get('travelDate'),
-      persons: formData.get('persons'),
+      name: String(formData.get('name') ?? ''),
+      phone: String(formData.get('phone') ?? ''),
+      city: String(formData.get('city') ?? ''),
+      travelDate: String(formData.get('travelDate') ?? ''),
+      persons: Number(formData.get('persons') ?? 0),
     };
+
+    // Extra safety check (recommended)
+    if (
+      !payload.name ||
+      !payload.phone ||
+      !payload.city ||
+      !payload.travelDate ||
+      payload.persons <= 0
+    ) {
+      setStatus('error');
+      setLoading(false);
+      return;
+    }
 
     try {
       const res = await fetch('/api/send-enquiry', {
@@ -101,13 +114,13 @@ const TourEnquiryForm: React.FC = () => {
 
         {status === 'success' && (
           <p className="text-green-600 text-sm text-center">
-            ✅ Enquiry sent successfully!
+            Enquiry sent successfully!
           </p>
         )}
 
         {status === 'error' && (
           <p className="text-red-600 text-sm text-center">
-            ❌ Something went wrong. Please try again.
+            Something went wrong. Please try again.
           </p>
         )}
       </form>
