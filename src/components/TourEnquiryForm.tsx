@@ -2,26 +2,31 @@
 
 import React, { useState } from 'react';
 
+type Status = 'idle' | 'success' | 'error';
+
 const TourEnquiryForm: React.FC = () => {
   const [loading, setLoading] = useState(false);
-  const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [status, setStatus] = useState<Status>('idle');
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
     setStatus('idle');
 
-    const formData = new FormData(e.currentTarget);
+    const form = e.currentTarget;
 
     const payload = {
-      name: String(formData.get('name') ?? ''),
-      phone: String(formData.get('phone') ?? ''),
-      city: String(formData.get('city') ?? ''),
-      travelDate: String(formData.get('travelDate') ?? ''),
-      persons: Number(formData.get('persons') ?? 0),
+      name: (form.elements.namedItem('name') as HTMLInputElement)?.value || '',
+      phone: (form.elements.namedItem('phone') as HTMLInputElement)?.value || '',
+      city: (form.elements.namedItem('city') as HTMLInputElement)?.value || '',
+      travelDate:
+        (form.elements.namedItem('travelDate') as HTMLInputElement)?.value || '',
+      persons: Number(
+        (form.elements.namedItem('persons') as HTMLInputElement)?.value || 0
+      ),
     };
 
-    // Extra safety check (recommended)
+    // Validation (important for CI + runtime)
     if (
       !payload.name ||
       !payload.phone ||
@@ -41,11 +46,11 @@ const TourEnquiryForm: React.FC = () => {
         body: JSON.stringify(payload),
       });
 
-      if (!res.ok) throw new Error('Failed');
+      if (!res.ok) throw new Error('Request failed');
 
       setStatus('success');
-      e.currentTarget.reset();
-    } catch (error) {
+      form.reset(); // ✅ now SAFE
+    } catch {
       setStatus('error');
     } finally {
       setLoading(false);
