@@ -3,13 +3,13 @@ import nodemailer from 'nodemailer';
 
 export async function POST(req: Request) {
   try {
-    const body = await req.json();
+    const data = await req.json();
 
-    const { name, phone, city, travelDate, persons } = body;
+    const { name, phone, city, travelDate, persons } = data;
 
     if (!name || !phone || !city || !travelDate || !persons) {
       return NextResponse.json(
-        { message: 'Missing fields' },
+        { message: 'Invalid payload' },
         { status: 400 }
       );
     }
@@ -17,12 +17,14 @@ export async function POST(req: Request) {
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
       port: Number(process.env.SMTP_PORT),
-      secure: true,
+      secure: true, // IMPORTANT for port 465
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
       },
     });
+
+    await transporter.verify(); // 🔥 catches SMTP errors early
 
     await transporter.sendMail({
       from: `"WW Vacations" <${process.env.SMTP_USER}>`,
@@ -30,19 +32,19 @@ export async function POST(req: Request) {
       subject: 'New Tour Enquiry',
       html: `
         <h2>New Tour Enquiry</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Mobile:</strong> ${phone}</p>
-        <p><strong>City:</strong> ${city}</p>
-        <p><strong>Travel Date:</strong> ${travelDate}</p>
-        <p><strong>No. of Persons:</strong> ${persons}</p>
+        <p><b>Name:</b> ${name}</p>
+        <p><b>Mobile:</b> ${phone}</p>
+        <p><b>City:</b> ${city}</p>
+        <p><b>Travel Date:</b> ${travelDate}</p>
+        <p><b>No. of Persons:</b> ${persons}</p>
       `,
     });
 
-    return NextResponse.json({ success: true });
+    return NextResponse.json({ success: true }, { status: 200 });
   } catch (error) {
-    console.error('Email Error:', error);
+    console.error('ENQUIRY ERROR:', error);
     return NextResponse.json(
-      { message: 'Email failed' },
+      { message: 'Server error' },
       { status: 500 }
     );
   }
