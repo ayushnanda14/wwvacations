@@ -5,6 +5,7 @@ import LandingPageFooter from '@/components/LandingPageFooter';
 import GujaratHeroSec from '@/components/GujaratHeroSec';
 import GujaratTripCard from '@/components/GujaratTripCard';
 import GujaratTourPackages from '@/components/GujaratTourPackages';
+import TourEnquiryForm from '@/components/TourEnquiryForm';
 
 export default function GujaratClient() {
 
@@ -15,6 +16,9 @@ export default function GujaratClient() {
         <GujaratHeroSec />
         <GujaratTripCard />
         <GujaratTourPackages />
+        <div className="max-w-7xl mx-auto px-4">
+          <TourEnquiryForm />
+        </div>
       </main>
       <LandingPageFooter />
     </>
