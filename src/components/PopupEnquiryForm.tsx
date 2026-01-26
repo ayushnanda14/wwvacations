@@ -41,48 +41,40 @@ const PopupEnquiryForm: React.FC = () => {
         <form className="mt-6 space-y-4">
 
           <input
-            type="text"
-            placeholder="Your Name"
-            className="w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#001e68]"
-            required
-          />
+          type="text"
+          placeholder="Name"
+          className="w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-600"
+        />
 
-          <input
-            type="tel"
-            placeholder="Mobile Number"
-            className="w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#001e68]"
-            required
-          />
+        <input
+          type="tel"
+          placeholder="Mobile No."
+          className="w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-600"
+        />
 
-          <input
-            type="email"
-            placeholder="Email Address"
-            className="w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#001e68]"
-          />
+        <input
+          type="text"
+          placeholder="City"
+          className="w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-600"
+        />
 
-          <select
-            className="w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#001e68]"
-            required
-          >
-            <option value="">Select Destination</option>
-            <option>Gujarat</option>
-            <option>Himachal</option>
-            <option>Kashmir</option>
-            <option>Kerala</option>
-          </select>
+        <input
+          type="date"
+          placeholder="When are you planning to visit Gujarat?"
+          className="w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-600"
+        />
 
-          <textarea
-            rows={3}
-            placeholder="Your Message"
-            className="w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#001e68]"
-          />
+        <input
+          type="number" min="1" max="5" placeholder="No. of Person"
+          className="w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-600"
+        />
 
-          <button
-            type="submit"
-            className="w-full bg-[#001e68] text-white py-3 rounded-lg font-semibold hover:bg-[#001855] transition"
-          >
-            Submit Enquiry
-          </button>
+        <button
+          type="submit"
+          className="w-full bg-[#001e68] text-white py-3 font-semibold hover:bg-[#a50000] transition"
+        >
+          SEND ENQUIRY
+        </button>
         </form>
       </div>
     </div>
