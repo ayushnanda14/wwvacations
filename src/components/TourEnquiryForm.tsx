@@ -21,12 +21,6 @@ const TourEnquiryForm: React.FC = () => {
         />
 
         <input
-          type="email"
-          placeholder="Email"
-          className="w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-600"
-        />
-
-        <input
           type="tel"
           placeholder="Mobile No."
           className="w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-600"
@@ -39,19 +33,13 @@ const TourEnquiryForm: React.FC = () => {
         />
 
         <input
-          type="text"
-          placeholder="Travel Destination"
+          type="date"
+          placeholder="When are you planning to visit Gujarat?"
           className="w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-600"
         />
 
         <input
           type="number" min="1" max="5" placeholder="No. of Person"
-          className="w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-600"
-        />
-
-        <input
-          type="date"
-          placeholder="Date"
           className="w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-600"
         />
 
