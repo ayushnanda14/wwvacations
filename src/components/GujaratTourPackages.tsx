@@ -96,7 +96,7 @@ const GujaratTourPackages: React.FC = () => {
         {/* Heading */}
         <div className="text-center mb-10">
           <h2 className="text-3xl font-extrabold text-[#001e68]">
-            Gujarat Tour Packages - India No. 1 Destination
+            Gujarat Tour Packages - India's No. 1 Travel Destination
           </h2>
           <p className="mt-2 text-gray-700">
             From the Rann of Kutch to the Somnath Temple, let Gujarat&apos;s splendor amaze you.
