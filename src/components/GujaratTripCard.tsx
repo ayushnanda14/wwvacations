@@ -16,8 +16,8 @@ const BestDealSection: React.FC = () => {
           {/* Layout */}
           <div className="flex flex-col md:flex-row-reverse">
 
-            {/* Image (RIGHT on desktop, TOP on mobile) */}
-            <div className="relative w-full md:w-2/3 h-56 md:h-[420px]">
+            {/* Image */}
+            <div className="relative w-full md:w-2/3 h-44 md:h-[300px]">
               <Image
                 src={TripImg}
                 alt="Gujarat Trip"
@@ -27,7 +27,7 @@ const BestDealSection: React.FC = () => {
               />
             </div>
 
-            {/* Content (LEFT on desktop, BELOW on mobile) */}
+            {/* Content */}
             <div className="relative w-full md:w-1/3 bg-white p-5 md:p-8 flex flex-col justify-center">
               <h2 className="text-2xl md:text-3xl font-extrabold text-orange-600">
                 Gujarat Trip
@@ -52,8 +52,8 @@ const BestDealSection: React.FC = () => {
             <Image
               src={OffImg}
               alt="25% Off"
-              width={160}
-              height={100}
+              width={140}
+              height={90}
             />
           </div>
 
