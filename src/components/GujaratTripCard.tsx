@@ -7,57 +7,58 @@ import OffImg from '@/25off.png';
 
 const BestDealSection: React.FC = () => {
   return (
-    <section id="best-deal" className="hidden md:block py-10">
+    <section id="best-deal" className="py-8 md:py-10">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="relative bg-white border rounded-lg overflow-hidden">
 
-          {/* Images */}
-          <div className="relative w-full">
-            {/* Desktop Image */}
-            <Image
-              src={TripImg}
-              alt="Gujarat Trip"
-              width={1200}
-              height={500}
-              className="w-full object-cover"
-              priority
-            />
-          </div>
+        {/* Card */}
+        <div className="relative bg-white border rounded-xl overflow-hidden shadow-md">
 
-          {/* Package Details */}
-          <div className="absolute inset-0 flex items-center">
-            <div className="relative bg-white/90 backdrop-blur-sm 
-              p-6 md:p-10 max-w-md">
+          {/* Flex layout */}
+          <div className="flex flex-col md:flex-row">
 
-              <h2 className="text-3xl font-extrabold text-orange-600">
+            {/* Image */}
+            <div className="relative w-full md:w-2/3 h-56 md:h-[420px]">
+              <Image
+                src={TripImg}
+                alt="Gujarat Trip"
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
+
+            {/* Content */}
+            <div className="relative w-full md:w-1/3 bg-white p-5 md:p-8 flex flex-col justify-center">
+              <h2 className="text-2xl md:text-3xl font-extrabold text-orange-600">
                 Gujarat Trip
               </h2>
 
-              <h3 className="flex items-center gap-2 mt-2 text-lg font-semibold">
+              <h3 className="flex items-center gap-2 mt-2 text-sm md:text-lg font-semibold">
                 ⏱ 04 Nights / 05 Days
               </h3>
 
-              <p className="mt-4 text-blue-800 font-semibold">
+              <p className="mt-3 md:mt-4 text-blue-800 font-semibold">
                 Starting From
               </p>
 
-              <div className="text-4xl font-extrabold mt-1">
-                ₹9,999<span className="text-xl"> /-</span>
+              <div className="text-3xl md:text-4xl font-extrabold mt-1">
+                ₹9,999<span className="text-lg md:text-xl"> /-</span>
               </div>
             </div>
           </div>
-        </div>
-        <div className="relative">
-            {/* Offer Badge */}
-              <div className="absolute -left-6 bottom-0">
-                <Image
-                  src={OffImg}
-                  alt="25% Off"
-                  width={200}
-                  height={120}
-                />
-              </div>
+
+          {/* Offer Badge */}
+          <div className="absolute -left-3 md:-left-6 bottom-4 md:bottom-6 z-10">
+            <Image
+              src={OffImg}
+              alt="25% Off"
+              width={160}
+              height={100}
+            />
           </div>
+
+        </div>
+
       </div>
     </section>
   );
