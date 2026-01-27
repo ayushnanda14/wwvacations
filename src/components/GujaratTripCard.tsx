@@ -48,7 +48,7 @@ const BestDealSection: React.FC = () => {
           </div>
 
           {/* Offer Badge */}
-          <div className="absolute left-0 bottom-4 md:bottom-6 z-10">
+          <div className="absolute right-4 md:right-0 bottom-4 md:bottom-0 z-10">
             <Image
               src={OffImg}
               alt="25% Off"
