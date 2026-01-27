@@ -13,10 +13,10 @@ const BestDealSection: React.FC = () => {
         {/* Card */}
         <div className="relative bg-white border rounded-xl overflow-hidden shadow-md">
 
-          {/* Flex layout */}
-          <div className="flex flex-col md:flex-row">
+          {/* Layout */}
+          <div className="flex flex-col md:flex-row-reverse">
 
-            {/* Image */}
+            {/* Image (RIGHT on desktop, TOP on mobile) */}
             <div className="relative w-full md:w-2/3 h-56 md:h-[420px]">
               <Image
                 src={TripImg}
@@ -27,7 +27,7 @@ const BestDealSection: React.FC = () => {
               />
             </div>
 
-            {/* Content */}
+            {/* Content (LEFT on desktop, BELOW on mobile) */}
             <div className="relative w-full md:w-1/3 bg-white p-5 md:p-8 flex flex-col justify-center">
               <h2 className="text-2xl md:text-3xl font-extrabold text-orange-600">
                 Gujarat Trip
@@ -48,7 +48,7 @@ const BestDealSection: React.FC = () => {
           </div>
 
           {/* Offer Badge */}
-          <div className="absolute -left-3 md:-left-6 bottom-4 md:bottom-6 z-10">
+          <div className="absolute left-0 bottom-4 md:bottom-6 z-10">
             <Image
               src={OffImg}
               alt="25% Off"
