@@ -1,6 +1,11 @@
 'use client';
 
-import PopupEnquiryForm from '@/components/PopupEnquiryForm';
+import dynamic from 'next/dynamic';
+
+const PopupEnquiryForm = dynamic(
+  () => import('@/components/PopupEnquiryForm'),
+  { ssr: false }
+);
 import LandingPageNavbar from '@/components/LandingPageNavbar';
 import LandingPageFooter from '@/components/LandingPageFooter';
 import GujaratHeroSec from '@/components/GujaratHeroSec';
