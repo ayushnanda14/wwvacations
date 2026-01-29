@@ -8,14 +8,15 @@ const PopupEnquiryForm: React.FC = () => {
   const [open, setOpen] = useState(false);
   const [status, setStatus] = useState<Status>('idle');
 
-  // Show popup once per user
+  // Show popup once per user (CLIENT ONLY)
   useEffect(() => {
-    const alreadyShown = localStorage.getItem('popup_enquiry_shown');
+    if (typeof window === 'undefined') return;
 
-    if (!alreadyShown) {
+    const shown = window.localStorage.getItem('popup_enquiry_shown');
+    if (!shown) {
       const timer = setTimeout(() => {
         setOpen(true);
-        localStorage.setItem('popup_enquiry_shown', 'true');
+        window.localStorage.setItem('popup_enquiry_shown', 'true');
       }, 800);
 
       return () => clearTimeout(timer);
@@ -39,7 +40,6 @@ const PopupEnquiryForm: React.FC = () => {
       ),
     };
 
-    // Validation
     if (
       !payload.name ||
       !payload.phone ||
@@ -51,19 +51,23 @@ const PopupEnquiryForm: React.FC = () => {
       return;
     }
 
+    // 🔥 FIREBASE FUNCTION URL
+    const API_URL =
+      process.env.NODE_ENV === 'development'
+        ? 'http://localhost:5001/wwvacations-1f976/us-central1/sendEnquiry'
+        : 'https://us-central1/wwvacations-1f976.cloudfunctions.net/sendEnquiry';
+
     try {
-      const res = await fetch('/api/send-enquiry', {
+      const res = await fetch(API_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
       });
 
-      if (!res.ok) throw new Error('Failed');
+      if (!res.ok) throw new Error('Request failed');
 
       setStatus('success');
       form.reset();
-
-      // Auto close after success
       setTimeout(() => setOpen(false), 1500);
     } catch {
       setStatus('error');
@@ -74,84 +78,50 @@ const PopupEnquiryForm: React.FC = () => {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4">
-      {/* Modal */}
       <div className="relative bg-white w-full max-w-md rounded-xl shadow-xl p-6">
 
-        {/* Close */}
         <button
           onClick={() => setOpen(false)}
-          className="absolute top-3 right-3 text-gray-500 hover:text-black text-xl font-bold"
-          aria-label="Close popup"
+          className="absolute top-3 right-3 text-xl font-bold"
         >
           ×
         </button>
 
-        {/* Heading */}
-        <h2 className="text-2xl font-extrabold text-[#001e68] text-center">
+        <h2 className="text-2xl font-extrabold text-center text-[#001e68]">
           Enquire Now
         </h2>
-        <p className="text-sm text-gray-600 text-center mt-1">
-          Get the best deals for your next trip
-        </p>
 
-        {/* Form */}
         <form className="mt-6 space-y-4" onSubmit={handleSubmit}>
-          <input
-            name="name"
-            required
-            placeholder="Name"
-            className="w-full border px-4 py-2 rounded focus:ring-2 focus:ring-blue-600"
-          />
-
-          <input
-            name="phone"
-            type="tel"
-            required
-            placeholder="Mobile No."
-            className="w-full border px-4 py-2 rounded focus:ring-2 focus:ring-blue-600"
-          />
-
-          <input
-            name="city"
-            required
-            placeholder="City"
-            className="w-full border px-4 py-2 rounded focus:ring-2 focus:ring-blue-600"
-          />
-
-          <input
-            name="travelDate"
-            type="date"
-            required
-            className="w-full border px-4 py-2 rounded focus:ring-2 focus:ring-blue-600"
-          />
-
+          <input name="name" required placeholder="Name" className="input" />
+          <input name="phone" required placeholder="Mobile No." className="input" />
+          <input name="city" required placeholder="City" className="input" />
+          <input name="travelDate" type="date" required className="input" />
           <input
             name="persons"
             type="number"
             min={1}
-            max={20}
             required
             placeholder="No. of Person"
-            className="w-full border px-4 py-2 rounded focus:ring-2 focus:ring-blue-600"
+            className="input"
           />
 
           <button
             type="submit"
             disabled={status === 'loading'}
-            className="w-full bg-[#001e68] text-white py-3 font-semibold hover:bg-[#a50000] transition disabled:opacity-60"
+            className="w-full bg-[#001e68] text-white py-3 rounded"
           >
             {status === 'loading' ? 'SENDING...' : 'SEND ENQUIRY'}
           </button>
 
           {status === 'success' && (
-            <p className="text-green-600 text-sm text-center">
+            <p className="text-green-600 text-center text-sm">
               Enquiry sent successfully!
             </p>
           )}
 
           {status === 'error' && (
-            <p className="text-red-600 text-sm text-center">
-              Please fill all details correctly.
+            <p className="text-red-600 text-center text-sm">
+              Something went wrong. Please try again.
             </p>
           )}
         </form>
