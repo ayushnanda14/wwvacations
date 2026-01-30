@@ -45,9 +45,12 @@ const TourEnquiryForm: React.FC = () => {
     try {
       // 3. Send via EmailJS
       // Replace these strings with your actual IDs from the EmailJS dashboard
-      const SERVICE_ID = "service_dnsax36";
-      const TEMPLATE_ID = "template_mi1fn4i";
-      const PUBLIC_KEY = "mkngdkT874KAQJLN5";
+      const SERVICE_ID =
+        process.env.NEXT_PUBLIC_SERVICE_ID || "service_dnsax36";
+      const TEMPLATE_ID =
+        process.env.NEXT_PUBLIC_TEMPLATE_ID || "template_mi1fn4i";
+      const PUBLIC_KEY =
+        process.env.NEXT_PUBLIC_PUBLIC_KEY || "mkngdkT874KAQJLN5";
 
       await emailjs.send(
         SERVICE_ID,
