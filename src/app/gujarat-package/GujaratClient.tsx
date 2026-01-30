@@ -17,7 +17,7 @@ export default function GujaratClient() {
 
   return (
     <>
-      <PopupEnquiryForm />
+      {/* <PopupEnquiryForm /> */}
       <LandingPageNavbar />
       <main className="relative bg-white">
         <GujaratHeroSec />

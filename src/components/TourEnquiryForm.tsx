@@ -1,57 +1,66 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import emailjs from "@emailjs/browser"; // 1. Import EmailJS
 
-type Status = 'idle' | 'success' | 'error';
+type Status = "idle" | "success" | "error";
 
 const TourEnquiryForm: React.FC = () => {
   const [loading, setLoading] = useState(false);
-  const [status, setStatus] = useState<Status>('idle');
+  const [status, setStatus] = useState<Status>("idle");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
-    setStatus('idle');
+    setStatus("idle");
 
     const form = e.currentTarget;
 
+    // 2. Prepare the data (matches your EmailJS Template Variables)
     const payload = {
-      name: (form.elements.namedItem('name') as HTMLInputElement)?.value || '',
-      phone: (form.elements.namedItem('phone') as HTMLInputElement)?.value || '',
-      city: (form.elements.namedItem('city') as HTMLInputElement)?.value || '',
+      name: (form.elements.namedItem("name") as HTMLInputElement)?.value || "",
+      phone:
+        (form.elements.namedItem("phone") as HTMLInputElement)?.value || "",
+      city: (form.elements.namedItem("city") as HTMLInputElement)?.value || "",
       travelDate:
-        (form.elements.namedItem('travelDate') as HTMLInputElement)?.value || '',
-      persons: Number(
-        (form.elements.namedItem('persons') as HTMLInputElement)?.value || 0
-      ),
+        (form.elements.namedItem("travelDate") as HTMLInputElement)?.value ||
+        "",
+      persons:
+        (form.elements.namedItem("persons") as HTMLInputElement)?.value || "0",
     };
 
-    // Validation (important for CI + runtime)
+    // Validation
     if (
       !payload.name ||
       !payload.phone ||
       !payload.city ||
       !payload.travelDate ||
-      payload.persons <= 0
+      Number(payload.persons) <= 0
     ) {
-      setStatus('error');
+      setStatus("error");
       setLoading(false);
       return;
     }
 
     try {
-      const res = await fetch('/api/send-enquiry', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-      });
+      // 3. Send via EmailJS
+      // Replace these strings with your actual IDs from the EmailJS dashboard
+      const SERVICE_ID = process.env.NEXT_PUBLIC_SERVICE_ID || "";
+      const TEMPLATE_ID = process.env.NEXT_PUBLIC_TEMPLATE_ID || "";
+      const PUBLIC_KEY = process.env.NEXT_PUBLIC_PUBLIC_KEY || "";
 
-      if (!res.ok) throw new Error('Request failed');
+      await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        payload, // We pass the payload object directly as template params
+        PUBLIC_KEY,
+      );
 
-      setStatus('success');
-      form.reset(); // ✅ now SAFE
-    } catch {
-      setStatus('error');
+      setStatus("success");
+      form.reset();
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      setStatus("error");
     } finally {
       setLoading(false);
     }
@@ -114,16 +123,16 @@ const TourEnquiryForm: React.FC = () => {
           disabled={loading}
           className="w-full bg-[#001e68] text-white py-3 font-semibold hover:bg-[#a50000] transition disabled:opacity-60"
         >
-          {loading ? 'SENDING...' : 'SEND ENQUIRY'}
+          {loading ? "SENDING..." : "SEND ENQUIRY"}
         </button>
 
-        {status === 'success' && (
+        {status === "success" && (
           <p className="text-green-600 text-sm text-center">
             Enquiry sent successfully!
           </p>
         )}
 
-        {status === 'error' && (
+        {status === "error" && (
           <p className="text-red-600 text-sm text-center">
             Something went wrong. Please try again.
           </p>
